@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "updates";
+    Layout = "~/Views/Shared/guanliyuan.cshtml";
+}
+<style type="text/css">
+    #div1 {
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to right, #7A88FF, #7AFFAF);
+    }
+
+    table img {
+        width: 100px;
+        height: 80px;
+    }
+
+    input[type='text'] {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        border: 1px solid #6f7ac2;
+        height: 30px;
+        border-radius: 10px;
+    }
+
+    input[type='submit'] {
+        margin-top:9px;
+        margin-left:25px;
+        width: 160px;
+        height: 35px;
+        color: white;
+        position: relative;
+        top: -5px;
+        background-color: #1094f2;
+        outline: none;
+        border: 1px double #6f7ac2;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+
+        input[type='submit']:hover {
+            background-color: #26569d;
+            transition: 0.3s 0.1s;
+        }
+
+    input[type=date]:-webkit-inner-spin-button {
+        visibility: hidden;
+        background-color: transparent;
+        border-radius:10px;
+    }
+
+    input[type=date]::-webkit-datetime-edit-fields-wrapper {
+        background-color: #eee;
+    }
+
+
+    input[type='date'], input[type='number'] {
+        width: 150px;
+    }
+
+    table {
+        border: 1px solid #26569d;
+        cellspacing: 0px;
+        width: 500px;
+        border-collapse: collapse;
+    }
+
+        table tr {
+            border: 1px solid #565ee6;
+            height: 40px;
+        }
+
+            table tr td {
+                position: relative;
+                left: 150px;
+            }
+
+    input:focus {
+        outline: none;
+        border: 1px solid #6f7ac2;
+        border-radius: 10px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+      #div2 {
+        margin-top:80px;
+    }
+    h2 {
+        color:#3a51e8;
+    }
+</style>
+@model List<MvcApplication1.Models.Users>
+<script type="text/javascript"></script>
+<script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<div id="div1">
+    <h2>修改用户信息</h2>
+    <div id="div2"></div>
+    <form action="~/Home/update">
+        <table>
+            @foreach (var item in Model)
+            {
+                <tr style="">
+                    <td>用户编号:<input type="text" name="userid" value="@item.userid" readonly="true"/></td>
+                </tr>
+                <tr>
+                    <td>用户姓名:<input type="text" name="username" value="@item.username" placeholder="用户姓名不能为空" required="required" oninvalid="setCustomValidity('用户姓名不能为空') " oninput="setCustomValidity('')"/><br />
+                        <span>@Html.ValidationMessage("username")
+
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>用户密码:<input type="text" name="userpwd" value="@item.userpwd"/><br />
+                        @Html.ValidationMessage("userpwd")
+                    </td>
+                </tr>  
+                <tr>
+                    @if (item.sex == "男")
+                    {
+                        <td>用户性别:<input type="radio" name="sex" value="男" checked="checked" />男
+                    <input type="radio" name="sex" value="女" />女
+                        </td>
+                    }
+                    else
+                    {
+                        <td>用户性别:<input type="radio" name="sex" value="男" />男
+                    <input type="radio" name="sex" value="女" checked="checked" />女
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    <td style="line-height: 150px;">用户照片:<img style="position:relative;top:30px;left:50px;" src="~/userimg/@item.usersimg"/></td>
+                </tr>
+                <tr>
+                    <td>用户年龄:<input type="number" name="age" id="age" value="@item.age" min="1" max="120"  required="required" onblur="age()" oninvalid="setCustomValidity('用户年龄在1-120岁之间') " oninput="setCustomValidity('')" />
+                        <br />
+                        @Html.ValidationMessage("age")
+                    </td>
+                </tr>
+                <tr>
+                    <td>用户生日:<input type="date" name="brith" value="@item.brith" required="required" oninvalid="setCustomValidity('用户生日不能为空') " oninput="setCustomValidity('')" /><br />
+                        @Html.ValidationMessage("brith")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="确定" />&emsp;&emsp;&emsp;&emsp;</td>
+                </tr>
+            }
+        </table>
+    </form>
+</div>

@@ -1,0 +1,13 @@
+﻿.yh_gd_all {
+    height: 100%;
+    width: 80%;
+    margin: 0px auto;
+    /*border: 5px solid black;*/
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px auto;
+}

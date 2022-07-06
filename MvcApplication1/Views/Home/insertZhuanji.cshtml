@@ -1,0 +1,35 @@
+﻿@model List<MvcApplication1.Models.Singer>
+<div>
+    <form action="/Home/insertZhuanji" method="post" enctype="multipart/form-data">
+        <h2>添加专辑</h2>
+        <table>
+            <tr>
+                <td>专辑名称：<input type="text" name="zjname" placeholder="请输入专辑名称" required="required" oninvalid="setCustomValidity('请输入专辑名称') " oninput="setCustomValidity('')" /></td>
+            </tr>
+            <tr>
+                <td>歌手姓名：
+                <select name="gsid">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.gsid">@item.gsname</option>
+                    }
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>专辑价格：<input type="text" name="picezj" placeholder="请输入专辑价格" required="required" oninvalid="setCustomValidity('请输入专辑价格') " oninput="setCustomValidity('')" />
+                </td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <td>专辑照片：<input name="file" type="file" id="file"  required="required" oninvalid="setCustomValidity('请选择专辑照片')" oninput="setCustomValidity('')" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="上传"/>
+                </td>
+            </tr>
+        </table>
+        </form>
+</div>

@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "MV";
+    Layout = "~/Views/Shared/muban.cshtml";
+}
+<style>
+    #MV_bigbox_body {
+        background-color: gray;
+        height: 700px;
+        width: 100%;
+        text-align: center;
+    }
+
+        #MV_bigbox_body video {
+            margin-top: 10px;
+            height: 610px;
+            width: 60%;
+            object-fit: cover; /* 关键所在 */
+        }
+
+    #tjmv {
+        display: flex;
+        text-align: center;
+    }
+
+    #tjmv_img {
+        margin-left: 25px;
+        flex: 20;
+    }
+
+        #tjmv_img img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+    #MV_bigbox_text a {
+        color: white;
+        font-size: 20px;
+        position: relative;
+        top: 660px;
+    }
+
+   
+</style>
+<div id="div_head">
+    @*次级选项卡*@
+    @Html.Partial("Partial1")
+</div>
+<div id="MV_bigbox">
+
+    <div id="MV_bigbox_body">
+        <div id="MV_bigbox_text">
+            @foreach (var item in ViewData["MV"] as List<MvcApplication1.MV>)
+            { 
+                <a>正在播放:@item.gqname</a>
+                <a>—@item.gsname</a>     
+            }
+        </div>
+        @foreach (var item in ViewData["MV"] as List<MvcApplication1.MV>)
+        { 
+            <video src="~/mp4/@item.MVlj" controls="controls" autoplay="autoplay" />
+       
+        }
+    </div>
+    <div id="MV_bigbox_foot">
+        <h1>最新MV:</h1>
+        <div id="tjmv">
+
+            @foreach (var item in ViewData["TJMV"] as List<MvcApplication1.MV>)
+            { 
+                        
+                <div id="tjmv_img">
+                    <a href="/Home/MV?gqid=@item.gqid">
+                        <img src="~/gqimg/@item.gqimg" id="xfimg"/></a>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+@*图片悬浮效果*@
+<script>
+    $(function () {
+        $("#tjmv div").hover(function () {
+            $(this).find("img").fadeTo(200, .100);
+         
+        }, function () {
+            $(this).find("img").fadeTo(200, 5);
+
+         
+        })
+    })
+</script>

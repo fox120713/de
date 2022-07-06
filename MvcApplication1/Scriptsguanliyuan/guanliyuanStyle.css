@@ -1,0 +1,32 @@
+﻿#ADdiv_body {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    filter: brightness(150%);
+    display: flex;
+}
+
+#ADdiv_left {
+    flex: 11;
+    border-right: 1px solid yellow;
+}
+
+#ADdiv_right {
+    flex: 88;
+    background-color: white;
+}
+
+#ADul_daohang li {
+    width: 100%;
+    line-height: 65px;
+    font-size: 15px;
+    text-align: center;
+}
+
+    #ADul_daohang li a {
+        color: white;
+    }
+
+    #ADul_daohang li dl dd:hover {
+        background-color: #8a8a8a;
+    }

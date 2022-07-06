@@ -1,0 +1,48 @@
+﻿#denglu_button ul li {
+    /*padding: 0 2em;*/
+    background-color: #1aab8a;
+    color: #fff;
+    float: left;
+    border: none;
+    outline: none;
+    font-size: 1.6em;
+    cursor: pointer;
+    position: relative;
+    transition: all ease 800ms;
+}
+
+    #denglu_button ul li:hover {
+        background-color: #fff;
+        color: #1aab8a;
+    }
+
+    #denglu_button ul li a {
+        color: #fff;
+    }
+
+        #denglu_button ul li a:hover {
+            color: #1aab8a;
+        }
+
+    #denglu_button ul li:before, button:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background-color: #1aab8a;
+        transition: all ease 400ms;
+    }
+
+    #denglu_button ul li:after {
+        top: inherit;
+        right: inherit;
+        left: 0;
+        bottom: 0;
+    }
+
+    #denglu_button ul li:hover:after, #denglu_button ul li:hover:before {
+        width: 70px;
+        transition: all ease 800ms;
+    }

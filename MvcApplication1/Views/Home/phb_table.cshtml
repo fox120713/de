@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+@*@model List<MvcApplication1.Models.gs_gq_rd>*@
+@model PagedList.IPagedList<MvcApplication1.Models.gs_gq_rd>
+@using PagedList.Mvc
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Scripts/bootstrap.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>歌曲名</th>
+                <th>歌手</th>
+                <th>发布日期</th>
+                <th>点击量</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                           
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.gqname)</td>
+                    <td>
+                         <a href="~/Home/mqgs?gsid=@item.gsid">@item.gsname</a>
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.times)</td>
+                    <td>@Html.DisplayFor(modelItem => item.gqhot)</td>
+                    <td>
+                        <a href="/Home/gequ?gqid=@item.gqid" target="iframe0">
+                            <img src="~/icon/播放.jpg" style="height: 20px; text-align: center;" />
+                        </a>
+                    </td>
+                </tr>  
+            }
+
+        </tbody>
+    </table>
+    <div>
+        @*分页主要代码*@
+        每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页
+    @Html.PagedListPager(Model, page => Url.Action("phb", new { page }))
+    </div>
+</body>
+</html>

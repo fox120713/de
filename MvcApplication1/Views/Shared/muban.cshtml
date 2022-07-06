@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <link href="~/Scripts/button_ys.css" rel="stylesheet" />
+    <title></title>
+    <style type="text/css">
+        body, html {
+            height: 70px;
+            width: 100%;
+        }
+
+        a {
+            list-style: none;
+            text-decoration: none;
+            padding: 0px;
+            margin: 0px auto;
+        }
+
+        * {
+            list-style: none;
+            text-decoration: none;
+            padding: 0px;
+            margin: 0px auto;
+        }
+
+        #all {
+            height: 100%;
+            width: 100%;
+        }
+
+        #head {
+            height: 70px;
+            width: 100%;
+            background-color: black;
+            display: flex;
+        }
+
+            #head div {
+                /*border: 1px solid white;*/
+            }
+
+        #logo {
+            flex: 20;
+        }
+
+            #logo img {
+                height: 75px;
+                margin-left: 130px;
+            }
+
+        #caoz {
+            flex: 10;
+            color: white;
+            margin-left: 0px;
+        }
+
+            #caoz ul {
+                width: 500px;
+                /*border:1px solid red;*/
+                height: 100%;
+            }
+
+            #caoz li {
+                float: left;
+                width: 100px;
+                /*border:1px solid red;*/
+                height: 100%;
+                text-align: center;
+                line-height: 65px;
+            }
+
+                #caoz li a {
+                    color: white;
+                }
+
+                #caoz li:hover {
+                    background-color: #8a8a8a;
+                    color: gray;
+                    height: 100%;
+                }
+
+        #sos {
+            flex: 50;
+        }
+
+            #sos input {
+                height: 30px;
+                width: 150px;
+                border-radius: 20px;
+                background-color: white;
+                color: black;
+                margin-top: 15px;
+                margin-left: 140px;
+                border: none;
+            }
+
+        #qit {
+            flex: 25;
+            margin-left: -400px;
+        }
+
+            #qit #yh {
+                height: 40px;
+                border-radius: 60px;
+                margin-top: 15px;
+                float: left;
+            }
+
+            #qit #ys {
+                height: 40px;
+                margin-top: 15px;
+                margin-left: 5px;
+            }
+
+        #word {
+            height: 1000px;
+            width: 100%;
+        }
+
+        #mine {
+            height: 450px;
+            width: 300px;
+            /*border: 1px solid white;*/
+            position: absolute;
+            top: 10px;
+            right: 220px;
+            display: none;
+        }
+
+        #mine_top {
+            /*border: 1px solid yellow;*/
+            height: 10%;
+        }
+
+            #mine_top img {
+                height: 124px;
+                float: left;
+                border-radius: 50%;
+                margin-left: 90px;
+            }
+
+        #mine_bottom {
+            background-color: black;
+            height: 90%;
+        }
+
+            #mine_bottom #name {
+                color: white;
+                font-size: 20px;
+                background-color: black;
+                border: none;
+                width: 100px;
+                float: left;
+                margin-top: 30px;
+                margin-left: 120px;
+            }
+
+            #mine_bottom img {
+                height: 30px;
+                float: left;
+                margin-top: 27px;
+                margin-left: 10px;
+            }
+
+        #p_show {
+            float: left;
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+            #p_show input {
+                width: 50px;
+                background-color: black;
+                border: none;
+                color: white;
+            }
+
+        #mine_bottom_word {
+            color: white;
+            font-size: 20px;
+            float: left;
+            width: 100%;
+            margin-top: 30px;
+            /*border: 1px solid white;*/
+        }
+
+            #mine_bottom_word ul li {
+                margin-top: 10px;
+                width: 100%;
+                float: left;
+                /*border: 1px solid white;*/
+            }
+
+                #mine_bottom_word ul li img {
+                    height: 30px;
+                    margin-top: 0px;
+                    margin-right: 20px;
+                    margin-left: 80px;
+                    float: left;
+                }
+
+                #mine_bottom_word ul li a {
+                    color: white;
+                }
+
+        #ys_box {
+            background-color: black;
+            /*filter: brightness(150%);*/
+            height: 200px;
+            width: 300px;
+            position: absolute;
+            top: 70px;
+            right: 150px;
+            /*border: 1px solid white;*/
+            display: none;
+        }
+
+        #group_1, #group_2 {
+            float: left;
+            height: 50%;
+            width: 100%;
+        }
+
+            #group_1 div {
+                height: 60px;
+                width: 60px;
+                border-radius: 20%;
+                margin-left: 25px;
+                margin-top: 10px;
+                float: left;
+                border: 2px solid white;
+            }
+
+            #group_2 div {
+                height: 60px;
+                margin-top: 10px;
+                margin-left: 25px;
+                width: 60px;
+                border-radius: 20%;
+                border: 2px solid white;
+                float: left;
+            }
+
+        #dengluer {
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+            width: 50px;
+            height: 25px;
+            margin-top: 20px;
+            border: none;
+        }
+
+        #ss {
+            width: 50px;
+            background-color: red;
+            border-radius: 10px;
+            height: 30px;
+            border-radius: 20px;
+            color: white;
+            margin-top: 18px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="all">
+        <div id="head">
+            <div id="logo">
+                <img src="~/icon/LOGO.png" />
+            </div>
+            <div id="caoz">
+                <ul>
+                    <li><a href="/Home/gxtj">音乐大厅</a></li>
+                    <li><a href="/Home/MYgedan" onclick="return yinyuer()">我的音乐</a></li>
+                    <li><a href="/Home/yinyuer" onclick="return yinyuer()">音乐人</a></li>
+                </ul>
+            </div>
+            <div id="sos">
+                <form action="/Home/cx" method="post">
+
+                    <input id="sousuo" type="text" placeholder="歌曲搜索" name="gqname" />
+                    <input type="submit" id="ss" />
+
+                </form>
+            </div>
+
+            <div id="qit">
+                <a href="/Home/denglu">
+                    <input type="button" id="dengluer" value="登录" /></a>
+                <img src="@Session["yhimg"]" id="yh"/>
+                <img src="~/icon/主题.png" id="ys" />
+            </div>
+
+        </div>
+        <div id="word">
+            @RenderBody()
+        </div>
+        <div id="mine">
+
+            <div id="mine_top">
+                <img src="@Session["yhimg"]" />
+            </div>
+            <div id="mine_bottom">
+                <input id="name" type="text" value="@Session["yhname"]" disabled="disabled" />
+                <img src="~/icon/vip.png" />
+
+                <div id="mine_bottom_word">
+                    <ul>
+                        <li>
+                            <img src="~/icon/_详情.png" />
+                            <a href="/Home/yh_xq">用户详情</a>
+                        </li>
+
+                        <li>
+                            <img src="~/icon/修改.png" />
+                            <a href="/Home/yh_mmxg">修改密码</a>
+                        </li>
+                        <li>
+                            <img src="~/icon/文件夹.png" />
+                            <a href="/Home/yh_gjgl">稿件管理</a>
+                        </li>
+
+
+                        <li>
+                            <img src="~/icon/退出%20.png" />
+                            @Html.ActionLink("退出", "yh_tc", "Home")
+                        </li>
+                    </ul>
+                </div>
+                @*vip标示*@
+            </div>
+        </div>
+
+        @*主题换色*@
+        <div id="ys_box">
+            <div id="group_1">
+                <div id="black" style="background-color: black">
+                    <div style="height: 50%; border: none; width: 100%; background-color: white; opacity: 0.3; border-radius: 0px; margin: 0px; padding: 0px; text-align: center; margin-top: 30px; opacity: 0.5;">炫酷黑</div>
+                </div>
+                <div id="saddlebrown" style="background-color: saddlebrown">
+                    <div style="height: 50%; border: none; width: 100%; background-color: white; opacity: 0.3; border-radius: 0px; margin: 0px; padding: 0px; text-align: center; margin-top: 30px; opacity: 0.5;">深沉棕</div>
+                </div>
+                <div id="rosybrown" style="background-color: rosybrown">
+                    <div style="height: 50%; border: none; width: 100%; background-color: white; opacity: 0.3; border-radius: 0px; margin: 0px; padding: 0px; text-align: center; margin-top: 30px; opacity: 0.5;">樱花粉</div>
+                </div>
+            </div>
+            <div id="group_2">
+                <div id="darkcyan" style="background-color: darkcyan">
+                    <div style="height: 50%; border: none; width: 100%; background-color: white; opacity: 0.3; border-radius: 0px; margin: 0px; padding: 0px; text-align: center; margin-top: 30px; opacity: 0.5;">青花绿</div>
+                </div>
+                <div id="darkslategrey" style="background-color: darkslategrey">
+                    <div style="height: 50%; border: none; width: 100%; background-color: white; opacity: 0.3; border-radius: 0px; margin: 0px; padding: 0px; text-align: center; margin-top: 30px; opacity: 0.5;">森林绿</div>
+                </div>
+                <div id="mediumpurple" style="background-color: mediumpurple">
+                    <div style="height: 50%; border: none; width: 100%; background-color: white; opacity: 0.3; border-radius: 0px; margin: 0px; padding: 0px; text-align: center; margin-top: 30px; opacity: 0.5;">香芋紫</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    function yinyuer() {
+        var bool = "@Session["id"]";
+        if (bool != 1) {
+            alert("请先登录账号！")
+            return false;
+        }
+        return true;
+    }
+
+    $(function () {
+        //登录
+        var bool = "@Session["id"]";
+        if (bool == 1) {
+            $("#dengluer").hide();
+            $("#yh").show();
+            $("#ys").show();
+        } else {
+            $("#dengluer").show();
+            $("#yh").hide();
+            $("#ys").hide();
+        }
+
+        $("#caoz li").hover(function () {
+            $(this).css("background-color", "gray")
+            $(this).css("opacity", "0.5")
+            $(this).siblings("li").css("background-color", "none")
+            $(this).siblings("li").css("opacity", "1")
+            $(this).siblings("li").css("background", "rgba(0,0,0,0)")
+        })
+        $("#qit #yh").mouseover(function () {
+            //显示
+            $("#mine").fadeIn(500);
+            $("#ys #yh").fadeOut(500)
+        })
+        $("#word").mouseover(function () {
+            //隐藏
+            $("#mine").fadeOut(500);
+            $("#ys #yh").fadeIn(600);
+        })
+        $("#ys").click(function () {
+            //主题的点击事件
+            $("#ys_box").fadeIn(600);
+        })
+        $("#word").mouseover(function () {
+            //移出事件
+            $("#ys_box").fadeOut(500);
+        })
+        $("#group_1 div").click(function () {
+            //点击变色事件
+            var color = $(this).attr("id");
+            $("#head").css("background-color", color);
+            $("#sousuo").css("background-color", "white");
+            $("#name").css("background-color", color);
+            $("#mine_bottom").css("background-color", color);
+            $("#p_show input").css("background-color", color);
+            $("#ys_box").css("background-color", color);
+            $("#sousuo").css("color", "black");
+            $("#sousuo").css("opacity", " 0.7");
+        })
+        $("#group_2 div").click(function () {
+            //点击变色事件
+            var color = $(this).attr("id");
+            $("#head").css("background-color", color);
+            $("#name").css("background-color", color);
+            $("#mine_bottom").css("background-color", color);
+            $("#p_show input").css("background-color", color);
+            $("#ys_box").css("background-color", color);
+            $("#sousuo").css("background-color", "white");
+            $("#sousuo").css("color", "black");
+            $("#sousuo").css("opacity", " 0.7");
+        })
+
+
+    })
+
+
+</script>

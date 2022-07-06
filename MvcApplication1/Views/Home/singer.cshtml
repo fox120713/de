@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "singer";
+    Layout = "~/Views/Shared/muban.cshtml";
+}
+@*@model List<MvcApplication1.Models.Singer>*@
+@model PagedList.IPagedList<MvcApplication1.Models.Singer>
+@using PagedList.Mvc
+<script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+<link href="~/Scripts/singer_css.css" rel="stylesheet" />
+<link href="~/Scripts/bootstrap.css" rel="stylesheet" type="text/css" />
+<div id="div_head">
+    @*次级选项卡*@
+    @Html.Partial("Partial1")
+</div>
+<div class="singer_all">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>歌手编号</th>
+                <th>歌手名</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.gsid</td>
+                    <td>@item.gsname</td>
+                    <td><a href="/Home/mqgs?gsid=@item.gsid">查看详情</a></td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <div>
+        @*分页主要代码*@
+        每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页
+    @Html.PagedListPager(Model, page => Url.Action("phb", new { page }))
+    </div>
+</div>
+
+

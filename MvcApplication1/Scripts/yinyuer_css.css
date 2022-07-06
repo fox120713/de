@@ -1,0 +1,25 @@
+﻿.yinyuer_quan {
+    height: 100%;
+    width: 80%;
+    margin: 0px auto;
+    /*border: 5px solid black;*/
+}
+
+.yinyuer_tittle {
+    border-bottom: 3px solid red;
+    height: 5%;
+    width: 100%;
+    line-height: 60px;
+    font-size: 25px;
+}
+
+.a_ys {
+    color: black;
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px auto;
+}

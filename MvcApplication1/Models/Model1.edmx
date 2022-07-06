@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="YIYUNModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="YIYUNModelStoreContainer">
+          <EntitySet Name="Buyjl" EntityType="YIYUNModel.Store.Buyjl" store:Type="Tables" store:Schema="dbo" store:Name="Buyjl">
+            <DefiningQuery>SELECT 
+      [Buyjl].[gmxq] AS [gmxq], 
+      [Buyjl].[zjid] AS [zjid], 
+      [Buyjl].[price] AS [price], 
+      [Buyjl].[xq] AS [xq], 
+      [Buyjl].[number] AS [number], 
+      [Buyjl].[userId] AS [userId]
+      FROM [dbo].[Buyjl] AS [Buyjl]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MVtype" EntityType="YIYUNModel.Store.MVtype" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Singer" EntityType="YIYUNModel.Store.Singer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SingerLX" EntityType="YIYUNModel.Store.SingerLX" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SingerRD" EntityType="YIYUNModel.Store.SingerRD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Song" EntityType="YIYUNModel.Store.Song" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Songlist" EntityType="YIYUNModel.Store.Songlist" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Songlistss" EntityType="YIYUNModel.Store.Songlistss" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SongRD" EntityType="YIYUNModel.Store.SongRD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Songtype" EntityType="YIYUNModel.Store.Songtype" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Userjl" EntityType="YIYUNModel.Store.Userjl" store:Type="Tables" store:Schema="dbo" store:Name="Userjl">
+            <DefiningQuery>SELECT 
+      [Userjl].[UserjlId] AS [UserjlId], 
+      [Userjl].[gqid] AS [gqid], 
+      [Userjl].[Userjltimes] AS [Userjltimes]
+      FROM [dbo].[Userjl] AS [Userjl]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Users" EntityType="YIYUNModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserSinger" EntityType="YIYUNModel.Store.UserSinger" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Zhuanj" EntityType="YIYUNModel.Store.Zhuanj" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“YIYUN.dbo.Buyjl”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="Buyjl">
+          <Key>
+            <PropertyRef Name="gmxq" />
+            <PropertyRef Name="zjid" />
+            <PropertyRef Name="price" />
+            <PropertyRef Name="xq" />
+            <PropertyRef Name="number" />
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="gmxq" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="zjid" Type="int" Nullable="false" />
+          <Property Name="price" Type="money" Nullable="false" />
+          <Property Name="xq" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="number" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MVtype">
+          <Key>
+            <PropertyRef Name="MVid" />
+          </Key>
+          <Property Name="MVid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MV" Type="nvarchar(max)" />
+          <Property Name="gqid" Type="int" />
+        </EntityType>
+        <EntityType Name="Singer">
+          <Key>
+            <PropertyRef Name="gsid" />
+          </Key>
+          <Property Name="gsid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="gsname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="gsimg" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SingerLX">
+          <Key>
+            <PropertyRef Name="gslxid" />
+          </Key>
+          <Property Name="gslxid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="gstype" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="gsid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SingerRD">
+          <Key>
+            <PropertyRef Name="gsrdid" />
+          </Key>
+          <Property Name="gsrdid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="gsid" Type="int" Nullable="false" />
+          <Property Name="gshot" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="gqid" />
+          </Key>
+          <Property Name="gqid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="zjid" Type="int" Nullable="false" />
+          <Property Name="gqimg" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="js" Type="text" Nullable="false" />
+          <Property Name="jb" Type="int" />
+          <Property Name="jbtest" Type="nvarchar(max)" />
+          <Property Name="gqname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="picedq" Type="int" />
+          <Property Name="typeid" Type="int" />
+          <Property Name="texts" Type="text" Nullable="false" />
+          <Property Name="sc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="times" Type="datetime" Nullable="false" />
+          <Property Name="gsid" Type="int" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="mp3" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Songlist">
+          <Key>
+            <PropertyRef Name="gdid" />
+          </Key>
+          <Property Name="gdid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="gdname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="gdimg" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Songlistss">
+          <Key>
+            <PropertyRef Name="Songlistssid" />
+          </Key>
+          <Property Name="Songlistssid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="gdid" Type="int" Nullable="false" />
+          <Property Name="gqid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SongRD">
+          <Key>
+            <PropertyRef Name="gqrdid" />
+          </Key>
+          <Property Name="gqrdid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="gqid" Type="int" Nullable="false" />
+          <Property Name="gqhot" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Songtype">
+          <Key>
+            <PropertyRef Name="typeid" />
+          </Key>
+          <Property Name="typeid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="typename" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“YIYUN.dbo.Userjl”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="Userjl">
+          <Key>
+            <PropertyRef Name="UserjlId" />
+            <PropertyRef Name="gqid" />
+            <PropertyRef Name="Userjltimes" />
+          </Key>
+          <Property Name="UserjlId" Type="int" Nullable="false" />
+          <Property Name="gqid" Type="int" Nullable="false" />
+          <Property Name="Userjltimes" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="sex" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="brith" Type="datetime" Nullable="false" />
+          <Property Name="userpwd" Type="int" Nullable="false" />
+          <Property Name="vip" Type="int" Nullable="false" />
+          <Property Name="gly" Type="int" Nullable="false" />
+          <Property Name="usersimg" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserSinger">
+          <Key>
+            <PropertyRef Name="bh" />
+          </Key>
+          <Property Name="bh" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="useriid" Type="int" Nullable="false" />
+          <Property Name="gsid" Type="int" />
+        </EntityType>
+        <EntityType Name="Zhuanj">
+          <Key>
+            <PropertyRef Name="zjid" />
+          </Key>
+          <Property Name="zjid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="gsid" Type="int" Nullable="false" />
+          <Property Name="zjname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="picezj" Type="int" Nullable="false" />
+          <Property Name="zjhot" Type="int" Nullable="false" />
+          <Property Name="Zhuanjimg" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="gqmoney" Type="decimal" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YIYUNModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="YIYUNEntities15" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Buyjl" EntityType="YIYUNModel.Buyjl" />
+          <EntitySet Name="MVtype" EntityType="YIYUNModel.MVtype" />
+          <EntitySet Name="Singer" EntityType="YIYUNModel.Singer" />
+          <EntitySet Name="SingerLX" EntityType="YIYUNModel.SingerLX" />
+          <EntitySet Name="SingerRD" EntityType="YIYUNModel.SingerRD" />
+          <EntitySet Name="Song" EntityType="YIYUNModel.Song" />
+          <EntitySet Name="Songlist" EntityType="YIYUNModel.Songlist" />
+          <EntitySet Name="Songlistss" EntityType="YIYUNModel.Songlistss" />
+          <EntitySet Name="SongRD" EntityType="YIYUNModel.SongRD" />
+          <EntitySet Name="Songtype" EntityType="YIYUNModel.Songtype" />
+          <EntitySet Name="Userjl" EntityType="YIYUNModel.Userjl" />
+          <EntitySet Name="Users" EntityType="YIYUNModel.Users" />
+          <EntitySet Name="UserSinger" EntityType="YIYUNModel.UserSinger" />
+          <EntitySet Name="Zhuanj" EntityType="YIYUNModel.Zhuanj" />
+        </EntityContainer>
+        <EntityType Name="Buyjl">
+          <Key>
+            <PropertyRef Name="gmxq" />
+            <PropertyRef Name="zjid" />
+            <PropertyRef Name="price" />
+            <PropertyRef Name="xq" />
+            <PropertyRef Name="number" />
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="gmxq" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="zjid" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="xq" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="number" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MVtype">
+          <Key>
+            <PropertyRef Name="MVid" />
+          </Key>
+          <Property Name="MVid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MV" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="gqid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Singer">
+          <Key>
+            <PropertyRef Name="gsid" />
+          </Key>
+          <Property Name="gsid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="gsname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="gsimg" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SingerLX">
+          <Key>
+            <PropertyRef Name="gslxid" />
+          </Key>
+          <Property Name="gslxid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="gstype" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="gsid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SingerRD">
+          <Key>
+            <PropertyRef Name="gsrdid" />
+          </Key>
+          <Property Name="gsrdid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="gsid" Type="Int32" Nullable="false" />
+          <Property Name="gshot" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="gqid" />
+          </Key>
+          <Property Name="gqid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="zjid" Type="Int32" Nullable="false" />
+          <Property Name="gqimg" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="js" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="jb" Type="Int32" />
+          <Property Name="jbtest" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="gqname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="picedq" Type="Int32" />
+          <Property Name="typeid" Type="Int32" />
+          <Property Name="texts" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="sc" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="times" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="gsid" Type="Int32" Nullable="false" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="mp3" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Songlist">
+          <Key>
+            <PropertyRef Name="gdid" />
+          </Key>
+          <Property Name="gdid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="gdname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="gdimg" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Songlistss">
+          <Key>
+            <PropertyRef Name="Songlistssid" />
+          </Key>
+          <Property Name="Songlistssid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="gdid" Type="Int32" Nullable="false" />
+          <Property Name="gqid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SongRD">
+          <Key>
+            <PropertyRef Name="gqrdid" />
+          </Key>
+          <Property Name="gqrdid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="gqid" Type="Int32" Nullable="false" />
+          <Property Name="gqhot" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Songtype">
+          <Key>
+            <PropertyRef Name="typeid" />
+          </Key>
+          <Property Name="typeid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="typename" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Userjl">
+          <Key>
+            <PropertyRef Name="UserjlId" />
+            <PropertyRef Name="gqid" />
+            <PropertyRef Name="Userjltimes" />
+          </Key>
+          <Property Name="UserjlId" Type="Int32" Nullable="false" />
+          <Property Name="gqid" Type="Int32" Nullable="false" />
+          <Property Name="Userjltimes" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="sex" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="age" Type="Int32" Nullable="false" />
+          <Property Name="brith" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="userpwd" Type="Int32" Nullable="false" />
+          <Property Name="vip" Type="Int32" Nullable="false" />
+          <Property Name="gly" Type="Int32" Nullable="false" />
+          <Property Name="usersimg" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserSinger">
+          <Key>
+            <PropertyRef Name="bh" />
+          </Key>
+          <Property Name="bh" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="useriid" Type="Int32" Nullable="false" />
+          <Property Name="gsid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Zhuanj">
+          <Key>
+            <PropertyRef Name="zjid" />
+          </Key>
+          <Property Name="zjid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="gsid" Type="Int32" Nullable="false" />
+          <Property Name="zjname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="picezj" Type="Int32" Nullable="false" />
+          <Property Name="zjhot" Type="Int32" Nullable="false" />
+          <Property Name="Zhuanjimg" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="gqmoney" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YIYUNModelStoreContainer" CdmEntityContainer="YIYUNEntities15">
+          <EntitySetMapping Name="Buyjl">
+            <EntityTypeMapping TypeName="YIYUNModel.Buyjl">
+              <MappingFragment StoreEntitySet="Buyjl">
+                <ScalarProperty Name="gmxq" ColumnName="gmxq" />
+                <ScalarProperty Name="zjid" ColumnName="zjid" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="xq" ColumnName="xq" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MVtype">
+            <EntityTypeMapping TypeName="YIYUNModel.MVtype">
+              <MappingFragment StoreEntitySet="MVtype">
+                <ScalarProperty Name="MVid" ColumnName="MVid" />
+                <ScalarProperty Name="MV" ColumnName="MV" />
+                <ScalarProperty Name="gqid" ColumnName="gqid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Singer">
+            <EntityTypeMapping TypeName="YIYUNModel.Singer">
+              <MappingFragment StoreEntitySet="Singer">
+                <ScalarProperty Name="gsid" ColumnName="gsid" />
+                <ScalarProperty Name="gsname" ColumnName="gsname" />
+                <ScalarProperty Name="gsimg" ColumnName="gsimg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SingerLX">
+            <EntityTypeMapping TypeName="YIYUNModel.SingerLX">
+              <MappingFragment StoreEntitySet="SingerLX">
+                <ScalarProperty Name="gslxid" ColumnName="gslxid" />
+                <ScalarProperty Name="gstype" ColumnName="gstype" />
+                <ScalarProperty Name="gsid" ColumnName="gsid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SingerRD">
+            <EntityTypeMapping TypeName="YIYUNModel.SingerRD">
+              <MappingFragment StoreEntitySet="SingerRD">
+                <ScalarProperty Name="gsrdid" ColumnName="gsrdid" />
+                <ScalarProperty Name="gsid" ColumnName="gsid" />
+                <ScalarProperty Name="gshot" ColumnName="gshot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Song">
+            <EntityTypeMapping TypeName="YIYUNModel.Song">
+              <MappingFragment StoreEntitySet="Song">
+                <ScalarProperty Name="gqid" ColumnName="gqid" />
+                <ScalarProperty Name="zjid" ColumnName="zjid" />
+                <ScalarProperty Name="gqimg" ColumnName="gqimg" />
+                <ScalarProperty Name="js" ColumnName="js" />
+                <ScalarProperty Name="jb" ColumnName="jb" />
+                <ScalarProperty Name="jbtest" ColumnName="jbtest" />
+                <ScalarProperty Name="gqname" ColumnName="gqname" />
+                <ScalarProperty Name="picedq" ColumnName="picedq" />
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="texts" ColumnName="texts" />
+                <ScalarProperty Name="sc" ColumnName="sc" />
+                <ScalarProperty Name="times" ColumnName="times" />
+                <ScalarProperty Name="gsid" ColumnName="gsid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="mp3" ColumnName="mp3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Songlist">
+            <EntityTypeMapping TypeName="YIYUNModel.Songlist">
+              <MappingFragment StoreEntitySet="Songlist">
+                <ScalarProperty Name="gdid" ColumnName="gdid" />
+                <ScalarProperty Name="gdname" ColumnName="gdname" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="gdimg" ColumnName="gdimg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Songlistss">
+            <EntityTypeMapping TypeName="YIYUNModel.Songlistss">
+              <MappingFragment StoreEntitySet="Songlistss">
+                <ScalarProperty Name="Songlistssid" ColumnName="Songlistssid" />
+                <ScalarProperty Name="gdid" ColumnName="gdid" />
+                <ScalarProperty Name="gqid" ColumnName="gqid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SongRD">
+            <EntityTypeMapping TypeName="YIYUNModel.SongRD">
+              <MappingFragment StoreEntitySet="SongRD">
+                <ScalarProperty Name="gqrdid" ColumnName="gqrdid" />
+                <ScalarProperty Name="gqid" ColumnName="gqid" />
+                <ScalarProperty Name="gqhot" ColumnName="gqhot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Songtype">
+            <EntityTypeMapping TypeName="YIYUNModel.Songtype">
+              <MappingFragment StoreEntitySet="Songtype">
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Userjl">
+            <EntityTypeMapping TypeName="YIYUNModel.Userjl">
+              <MappingFragment StoreEntitySet="Userjl">
+                <ScalarProperty Name="UserjlId" ColumnName="UserjlId" />
+                <ScalarProperty Name="gqid" ColumnName="gqid" />
+                <ScalarProperty Name="Userjltimes" ColumnName="Userjltimes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="YIYUNModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="brith" ColumnName="brith" />
+                <ScalarProperty Name="userpwd" ColumnName="userpwd" />
+                <ScalarProperty Name="vip" ColumnName="vip" />
+                <ScalarProperty Name="gly" ColumnName="gly" />
+                <ScalarProperty Name="usersimg" ColumnName="usersimg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSinger">
+            <EntityTypeMapping TypeName="YIYUNModel.UserSinger">
+              <MappingFragment StoreEntitySet="UserSinger">
+                <ScalarProperty Name="bh" ColumnName="bh" />
+                <ScalarProperty Name="useriid" ColumnName="useriid" />
+                <ScalarProperty Name="gsid" ColumnName="gsid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zhuanj">
+            <EntityTypeMapping TypeName="YIYUNModel.Zhuanj">
+              <MappingFragment StoreEntitySet="Zhuanj">
+                <ScalarProperty Name="zjid" ColumnName="zjid" />
+                <ScalarProperty Name="gsid" ColumnName="gsid" />
+                <ScalarProperty Name="zjname" ColumnName="zjname" />
+                <ScalarProperty Name="picezj" ColumnName="picezj" />
+                <ScalarProperty Name="zjhot" ColumnName="zjhot" />
+                <ScalarProperty Name="Zhuanjimg" ColumnName="Zhuanjimg" />
+                <ScalarProperty Name="gqmoney" ColumnName="gqmoney" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

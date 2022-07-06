@@ -1,0 +1,81 @@
+﻿@*@model List<MvcApplication1.Models.Song>*@
+@model PagedList.IPagedList<MvcApplication1.Models.Song>
+@using PagedList.Mvc
+<link href="~/Scripts/bootstrap.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<style type="text/css">
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+    table{
+        text-align: center;
+        width: 100%;
+    }
+        table tr:hover td {
+            background-color: #8888FF;
+        }
+
+    .ell {
+        line-height: 100px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        height: 100px;
+    }
+
+    table img {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+<h3 style="text-align: left;">下架歌曲</h3>
+<div id="div1">
+    <form action="~/Home/deleteSong" method="post">
+        <table border="1" cellspacing="0">
+            <tr style="background-color: aqua; height: 80px;">
+                <th>专辑id</th>
+                <th>歌曲封面</th>
+                <th>歌曲名称</th>
+                <th>歌曲类型</th>
+                <th>歌曲介绍</th>
+                <th>歌词内容</th>
+                <th>歌曲音频</th>
+                <th>歌曲下架</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="display: none">@item.gqid</td>
+                    <td>@item.zjid</td>
+                    <td>
+                        <img src="~/gqimg/@item.gqimg"/></td>
+                    <td>@item.gqname</td>
+                    <td>@item.typeid</td>
+                    <td class="ll" title="@item.js">歌手介绍</td>
+                    <td class="ell" title="@item.texts">歌词详情</td>
+                    <td>@item.mp3</td>
+                    <td><a href="~/Home/deleteS?gqid=@item.gqid" onclick="return confirm('您确认下架歌曲 @item.gqname 的全部信息吗?')">下架</a></td>
+                </tr>                                 
+            }
+        </table>
+    </form>
+    <div>
+        @*分页主要代码*@
+        每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页
+        @Html.PagedListPager(Model, page => Url.Action("deleteSong", new { page }))
+    </div>
+</div>
+<script>
+    $(".table td").mouseover(function () {
+        var trList = $("table").find("tr");//获取所有的tr行
+        for (var i = 0; i < trList.length; i++) {//遍历每一行
+            var tdArr = trList.eq(i).find("td");//获取每一行中的td
+            for (var j = 0; j < tdArr.length; j++) {
+                var td_text = tdArr.eq(j).text();
+                tdArr.eq(j).attr("title", td_text);
+            }
+        }
+    });
+</script>

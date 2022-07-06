@@ -1,0 +1,105 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: url("../images/bg.jpg"); /*背景图片*/
+}
+
+@-webkit-keyframes zq {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+/*MusicCon  begin*/
+.MusicCon {
+    width: 560px;
+    height: 115px;
+    position: fixed; 固定定位
+    left: 0px;
+    bottom: 50px;
+    background: #000;
+    overflow: hidden; 超出部分隐藏
+}
+
+    .MusicCon .ImgTxt {
+        width: 300px;
+        height: 115px;
+        position: absolute;
+        left: 0px;
+    }
+
+    .MusicCon .But {
+        width: 160px;
+        height: 75px;
+        position: absolute;
+        padding-top: 40px;
+        left: 300px;
+    }
+
+    .MusicCon .clickBut {
+        width: 22px;
+        height: 115px;
+        background: blue;
+        position: absolute;
+        right: 0px;
+    }
+
+    .MusicCon .ImgTxt dl {
+        width: 300px;
+        height: 100px;
+        padding-top: 13px;
+    }
+
+        .MusicCon .ImgTxt dl dt {
+            width: 90px;
+            height: 90px;
+            float: left;
+        }
+
+        .MusicCon .ImgTxt dl dd {
+            width: 200px;
+            height: 90px;
+            float: right;
+            color: #fff;
+            font-size: 22px;
+            line-height: 90px;
+        }
+
+    .MusicCon .But a {
+        width: 24px;
+        height: 32px;
+        display: block;
+        float: left;
+        margin: 0px 10px;
+    }
+
+        .MusicCon .But a.prev {
+            background: url("../images/prev.jpg") no-repeat center;
+        }
+
+        .MusicCon .But a.play {
+            background: url("../images/pause.jpg") no-repeat center;
+            }
+
+        .MusicCon .But a.next {
+            background: url("../images/next.jpg") no-repeat center;
+        }
+
+        .MusicCon .But a.prev:hover {
+            background: url("../images/prev1.jpg") no-repeat center;
+        }
+
+        .MusicCon .But a.play:hover {
+            background: url("../images/pause2.jpg") no-repeat center;
+        }
+
+        .MusicCon .But a.next:hover {
+            background: url("../images/next1.jpg") no-repeat center;
+        }*

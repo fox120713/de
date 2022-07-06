@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "zxmusic";
+    Layout = "~/Views/Shared/muban.cshtml";
+}
+@model List<MvcApplication1.Models.gs_gq_zj>
+<link href="~/Scripts/main.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+<link href="~/Scripts/zx_css.css" rel="stylesheet" type="text/css" />
+<div id="div_head">
+    @*次级选项卡*@
+    @Html.Partial("Partial1")
+</div>
+<div class="zx">
+    <div class="hot_new">
+        <div class="hot_tittle">
+            热门新专辑
+        </div>
+        <div class="hot_group">
+
+            @foreach (var item in Model)
+            {
+                
+                <dl>
+                    <dt><a  href="/Home/zjtj?zjid=@item.zjid">
+                        <img src="@item.Zhuanjimg"/>
+                        </a></dt>
+                    <dd>
+                        <p>@item.zjname</p>
+                        <p>@item.gsname</p>
+                    </dd>
+                </dl>
+            }
+
+        </div>
+
+        <div class="hot_tittle">
+            <p style="float: left; margin-right: 30px;">热门专辑</p>
+        </div>
+        <div class="all_hot_group">
+            @foreach (var item in ViewData["hotzj"] as List<MvcApplication1.Models.gs_gq_zj>)
+            {
+                <dl>
+                    <dt><a href="/Home/zjtj?zjid=@item.zjid"><img src="@item.Zhuanjimg"/></a></dt>
+                    <dd>
+                        <p>@item.zjname</p>
+                        <p>@item.gsname</p>
+                    </dd>
+                </dl>  
+            }
+
+        </div>
+    </div>
+</div>
+
+

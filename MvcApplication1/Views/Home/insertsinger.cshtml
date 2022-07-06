@@ -1,0 +1,106 @@
+﻿<style type="text/css">
+    #div1 {
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to right, #7A88FF, #7AFFAF);
+    }
+
+    input[type='text'] {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        border: 1px solid #6f7ac2;
+        height: 30px;
+        border-radius: 10px;
+    }
+
+    input[type='submit'] {
+        margin-top:9px;
+        margin-left:25px;
+        width: 160px;
+        height: 35px;
+        color: white;
+        position: relative;
+        top: -5px;
+        background-color: #1094f2;
+        outline: none;
+        border: 1px double #6f7ac2;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+
+        input[type='submit']:hover {
+            background-color: #26569d;
+            transition: 0.3s 0.1s;
+        }
+
+    table {
+        border: 1px solid #26569d;
+        cellspacing: 0px;
+        width: 500px;
+        border-collapse: collapse;
+    }
+
+        table tr {
+            border: 1px solid #565ee6;
+            height: 40px;
+        }
+
+            table tr td {
+                position: relative;
+                left: 150px;
+            }
+
+    input:focus {
+        outline: none;
+        border: 1px solid #6f7ac2;
+        border-radius: 10px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+
+    #div2 {
+        margin-top:150px;
+    }
+        h2 {
+        color:#3a51e8;
+    }
+</style>
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+@model List<MvcApplication1.Models.Songtype>
+<div id="div1">
+@*        @using (Ajax.BeginForm("insertsinger", "Home", new AjaxOptions
+{
+    UpdateTargetId = "div1",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod="Post",
+}))*@
+    <h2>添加歌手</h2>
+    <div id="div2"></div>
+ <form action="~/Home/insertsinger" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>歌手姓名：<input type="text" name="gsname" placeholder="请输入歌手姓名" required="required" oninvalid="setCustomValidity('请输入歌手姓名') " oninput="setCustomValidity('')" /></td>
+@*                <tr>
+                    <td>歌手类型
+                    <select name="typeid">
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.typeid">@item.typename</option>
+                        }
+                    </select>
+                    </td>
+                </tr>*@
+            <tr>
+                <td>歌手照片：<input name="file" type="file" id="file" required="required" oninvalid="setCustomValidity('请选择歌手照片')" oninput="setCustomValidity('')" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="提交" />
+                </td>
+            </tr>
+        </table>
+     </form>
+</div>

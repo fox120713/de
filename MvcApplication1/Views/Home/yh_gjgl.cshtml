@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "yh_gjgl";
+    Layout = "~/Views/Shared/muban.cshtml";
+}
+@model List<MvcApplication1.Models.yh_gs_gq>
+<link href="~/Scripts/main.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+<link href="~/Scripts/yh_gjgl_css.css" rel="stylesheet" type="text/css" />
+<link href="~/Scripts/bootstrap.css" rel="stylesheet" type="text/css" />
+<div id="div_head">
+    @*次级选项卡*@
+    @Html.Partial("Partial1")
+</div>
+<div class="yh_gjgl_all">
+    <table class="table table-striped" id="yh_gjgl_table">
+        <caption>我的歌曲管理</caption>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>歌曲名</th>
+                <th>发布日期</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.bh</td>
+                    <td>@item.gqname</td>
+                    <td>@item.times</td>
+                    <td>
+                        @Ajax.ActionLink("删除", "yh_gjgl_del", "Home", new { gqid = item.gqid,zjid=item.zjid}, new AjaxOptions
+                   {
+                       UpdateTargetId = "yh_gjgl_table",
+                       HttpMethod = "Post",
+                       InsertionMode = InsertionMode.Replace
+                   })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>

@@ -1,0 +1,26 @@
+﻿a {
+    list-style: none;
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px auto;
+}
+
+.yh_xq_quan {
+    height: 40%;
+    width: 80%;
+    margin: 0px auto;
+    /*border: 2px outset black;*/
+}
+
+    .yh_xq_quan img {
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+    }
+
+    .yh_xq_quan table {
+        margin-top: 100px;
+        border: 1px outset red;
+    }
+
+

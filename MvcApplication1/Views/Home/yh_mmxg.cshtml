@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "yh_mmxg";
+    Layout = "~/Views/Shared/muban.cshtml";
+}
+@model List<MvcApplication1.Models.Users>
+<link href="~/Scripts/main.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+<link href="~/Scripts/yh_mmxg_css.css" rel="stylesheet" type="text/css" />
+<link href="~/Scripts/bootstrap.css" rel="stylesheet" />
+<div id="div_head">
+    @*次级选项卡*@
+    @Html.Partial("Partial1")
+</div>
+<div class="yh_mmxg_quan">
+    @using (Html.BeginForm("yh_mmxg", "Home", FormMethod.Post))
+    {
+        <table cellspacing="0px" style="width: 60%; margin: 0px auto; margin-top: 5%; border: none">
+            <tr style="height: 80px;">
+                <td style="width: 30%; font-weight: bold; font-size: 30px;">用户名：</td>
+                <td style="font-size: 25px;">@Session["name"]</td>
+            </tr>
+            <tr>
+                <td style="width: 10%; font-weight: bold; font-size: 30px;">密码：</td>
+                <td style="font-size: 25px;">
+                    <input id="Text1" type="password" name="userpwd" />
+                </td>
+            </tr>
+            <tr style="height: 80px;">
+                <td style="width: 10%; font-weight: bold; font-size: 30px;">确认密码：</td>
+                <td style="font-size: 25px;">
+                    <input id="Text2" type="password" name="userpwd_1" />
+                </td>
+            </tr>
+            <tr style="height: 80px;">
+                <td colspan="2">
+                    <input id="Button1" type="button" value="取消" style="width: 150px; height: 50px; font-size: 25px;" class="btn btn-primary btn-lg " />
+                    <input id="Button2" type="submit" value="确认" style="width: 150px; height: 50px; text-align: center; font-size: 25px;" class="btn btn-primary btn-lg " />
+                </td>
+            </tr>
+
+        </table>
+        
+    }
+</div>
+

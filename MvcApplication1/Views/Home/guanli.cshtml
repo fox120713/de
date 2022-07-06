@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "guanli";
+    Layout = "~/Views/Shared/guanliyuan.cshtml";
+}
+@Styles.Render("~/Scriptsguanliyuan/guanliyuanStyle.css")
+<script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<div id="ADdiv_body">
+    <div id="ADdiv_left">
+        <ul id="ADul_daohang">
+            <li><a href="#">管理账户</a>
+                <dl>
+                    <dd>@Ajax.ActionLink("管理用户信息","updateuser", new AjaxOptions { UpdateTargetId = "ADdiv_right", InsertionMode = InsertionMode.Replace})</dd>
+                </dl>
+            </li>
+            <li><a href="#">管理歌曲</a>
+                <dl>
+                    <dd>@Ajax.ActionLink("添加歌手", "insertsinger", new AjaxOptions { UpdateTargetId = "ADdiv_right", InsertionMode = InsertionMode.Replace})</dd>
+                    <dd>@Ajax.ActionLink("添加专辑", "insertZhuanji", new AjaxOptions { UpdateTargetId = "ADdiv_right", InsertionMode = InsertionMode.Replace})</dd>
+                     <dd>@Ajax.ActionLink("添加歌曲", "insertSong", new AjaxOptions { UpdateTargetId = "ADdiv_right", InsertionMode = InsertionMode.Replace})</dd>
+                    <dd>@Ajax.ActionLink("添加歌曲热度", "insertSongRD", new AjaxOptions { UpdateTargetId = "ADdiv_right", InsertionMode = InsertionMode.Replace})</dd>
+                    <dd>@Ajax.ActionLink("添加MV","insertMV", new AjaxOptions { UpdateTargetId = "ADdiv_right", InsertionMode = InsertionMode.Replace})</dd>
+                    <dd>@Ajax.ActionLink("下架歌曲","deleteSong", new AjaxOptions { UpdateTargetId = "ADdiv_right", InsertionMode = InsertionMode.Replace})</dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div id="ADdiv_right">
+        @Html.Partial("Partial2")
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(function () {
+        //颜色
+        //鼠标悬浮效果
+        $("#ADul_daohang li").hover(function () {
+            $(this).css("background-color", "gray")
+            $(this).css("opacity", "0.5")
+            $(this).siblings("li").css("background-color", "none")
+            $(this).siblings("li").css("opacity", "1")
+            $(this).siblings("li").css("background", "rgba(0,0,0,0)")
+        })
+
+        //二级菜单
+        $("#ADul_daohang li dl").hide();
+        $("#ADul_daohang li").click(function () {
+            $(this).children("dl").toggle();
+
+        }, function () {
+            $(this).children("dl").toggle();
+
+        })
+           @*变色*@
+        $("#group_1").click(function () {
+            var black = " rgb(0, 0, 0)";
+            var color = $("#head").css("background-color");
+            //alert(color)
+            if (color != black) {
+                $("#ADdiv_left").css("background-color", color);
+                $("#ADdiv_left").css("filter", "brightness(80%)");
+                $("#ADdiv_left li:hover").css("background-color", " brightness(10%)");
+            }
+        })
+
+        $("#group_2 ").click(function () {
+            var black = " rgb(0, 0, 0)";
+            var color = $("#head").css("background-color");
+            //alert(color)
+            if (color != black) {
+                $("#ADdiv_left").css("background-color", color);
+                $("#ADdiv_left").css("filter", "brightness(80%)");
+                $("#ADdiv_left li:hover").css("background-color", " brightness(10%)");
+
+            }
+        })
+    })
+
+</script>
+

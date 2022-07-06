@@ -1,0 +1,17 @@
+﻿.yh_gjgl_all {
+    height: 100%;
+    width: 80%;
+    margin: 0px auto;
+    /*border: 5px solid black;*/
+}
+#yh_gjgl_table {
+height:100%;
+width:100%;
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px auto;
+}

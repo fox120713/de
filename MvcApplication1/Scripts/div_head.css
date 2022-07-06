@@ -1,0 +1,24 @@
+﻿#div_head {
+    margin-top:20px;
+    height: 6%;
+    width: 100%;
+    /*border: 1px solid white;*/
+}
+
+    #div_head ul {
+        height: 100%;
+        width: 100%;
+    }
+
+        #div_head ul li {
+            float: left;
+            height:100%;
+            width:200px;
+            text-align:center;
+        }
+
+            #div_head ul li a {
+                text-decoration: none;
+                font-size:20px;                
+                color: black;
+            }

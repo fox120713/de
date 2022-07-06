@@ -1,0 +1,162 @@
+﻿<style type="text/css">
+ #div1 {
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to right, #7A88FF, #7AFFAF);
+    }
+
+    table img {
+        width: 100px;
+        height: 80px;
+    }
+
+    input[type='text'] {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        border: 1px solid #6f7ac2;
+        height: 30px;
+        border-radius: 10px;
+    }
+
+    input[type='submit'] {
+        margin-top:9px;
+        margin-left:25px;
+        width: 160px;
+        height: 35px;
+        color: white;
+        position: relative;
+        top: -5px;
+        background-color: #1094f2;
+        outline: none;
+        border: 1px double #6f7ac2;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+
+        input[type='submit']:hover {
+            background-color: #26569d;
+            transition: 0.3s 0.1s;
+        }
+
+    input[type=date]:-webkit-inner-spin-button {
+        visibility: hidden;
+        background-color: transparent;
+        border-radius:10px;
+    }
+
+    input[type=date]::-webkit-datetime-edit-fields-wrapper {
+        background-color: #eee;
+    }
+
+
+    input[type='date'], input[type='number'] {
+        width: 150px;
+    }
+
+    table {
+        border: 1px solid #26569d;
+        cellspacing: 0px;
+        width: 500px;
+        border-collapse: collapse;
+    }
+
+        table tr {
+            border: 1px solid #565ee6;
+            height: 40px;
+        }
+
+            table tr td {
+                position: relative;
+                left: 150px;
+            }
+
+    input:focus {
+        outline: none;
+        border: 1px solid #6f7ac2;
+        border-radius: 10px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+      #div2 {
+        margin-top:20px;
+    }
+    h2 {
+        color:#3a51e8;
+    }
+</style>
+
+@model List<MvcApplication1.Models.Zhuanj>
+<style>
+    input:focus {
+        outline: none;
+        border: 1px solid #6f7ac2;
+        border-radius: 2px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+</style>
+<div id="div1">
+    <h2>添加歌曲</h2>
+    <form action="~/Home/insertSong" method="post" enctype="multipart/form-data">
+        <div id="div2"></div>
+        <table>
+            <tr>
+                <td>专辑名称:
+                        <select name="zjid">
+                            @foreach (var item in Model)
+                            {
+                                <option value="@item.zjid">@item.zjname</option>
+                            }
+                        </select>
+                </td>
+                <tr>
+                    <td>歌曲封面：<input name="file" type="file" id="file" required="required"  oninvalid="setCustomValidity('请选择歌曲封面')" oninput="setCustomValidity('')" /></td>
+                </tr>
+            <tr>
+                <td>歌曲名称：<input type="text" name="gqname" placeholder="请填写一下歌曲名称哦~" required="required" oninvalid="setCustomValidity('歌曲名称还没填写呢~')" oninput="setCustomValidity('')"/></td>
+            </tr>
+            <tr>
+                <td>
+                    歌曲作者：
+                     <select name="gsid">
+                            @foreach (var item in ViewData["sing"] as IEnumerable<MvcApplication1.Models.Singer>)
+                            {
+                                <option value="@item.gsid">@item.gsname</option>
+                                
+                            }
+                        </select> 
+                </td>
+            </tr>
+            <tr>
+                <td>歌曲类型：
+                     <select name="typeid">
+                            @foreach (var item in ViewData["item"] as IEnumerable<MvcApplication1.Models.Songtype>)
+                            {
+                                <option value="@item.typeid">@item.typename</option>
+                            }
+                        </select>
+                </td>
+            </tr>
+            <tr>
+                <td>上传时间：
+                    <input type="date" name="times" required="required" oninvalid="setCustomValidity('上传时间还没选择呢~')" oninput="setCustomValidity('')"/>
+                </td>
+            </tr>
+             <tr>
+                <td>音频上传：
+                    <input name="file2" type="file" id="file2" required="required"  oninvalid="setCustomValidity('请选择音频文件')" oninput="setCustomValidity('')" /></td>
+            </tr>
+            <tr>
+                <td>歌曲介绍：<p><textarea name="js" cols="30" rows="4" placeholder="填写一下歌曲介绍吧" required="required" oninvalid="setCustomValidity('歌曲介绍还没填写呢~')" oninput="setCustomValidity('')"></textarea></p></td>
+            </tr>
+             <tr>
+                <td>歌词内容：<p><textarea name="texts" cols="30" rows="20" placeholder="需要填写歌词内容哦~" required="required" oninvalid="setCustomValidity('歌词内容还没填写呢~')" oninput="setCustomValidity('')"></textarea></p></td>
+            </tr>
+             <tr>
+                <td><input type="submit" value="添加"/></td>
+            </tr>
+            <tr style="display:none">
+                <td><input type="hidden" name="userid" value="@Session["userid"]"/></td>
+            </tr>
+        </table>
+    </form>
+</div>

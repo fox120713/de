@@ -1,0 +1,102 @@
+﻿<style type="text/css">
+ #div1 {
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to right, #7A88FF, #7AFFAF);
+    }
+
+    table img {
+        width: 100px;
+        height: 80px;
+    }
+
+    input[type='text'] {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        border: 1px solid #6f7ac2;
+        height: 30px;
+        border-radius: 10px;
+    }
+
+    input[type='submit'] {
+        margin-top:9px;
+        margin-left:25px;
+        width: 160px;
+        height: 35px;
+        color: white;
+        position: relative;
+        top: -5px;
+        background-color: #1094f2;
+        outline: none;
+        border: 1px double #6f7ac2;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+
+        input[type='submit']:hover {
+            background-color: #26569d;
+            transition: 0.3s 0.1s;
+        }
+
+
+    input[type='date'], input[type='number'] {
+        width: 150px;
+    }
+
+    table {
+        border: 1px solid #26569d;
+        cellspacing: 0px;
+        width: 500px;
+        border-collapse: collapse;
+    }
+
+        table tr {
+            border: 1px solid #565ee6;
+            height: 40px;
+        }
+
+            table tr td {
+                position: relative;
+                left: 150px;
+            }
+
+    input:focus {
+        outline: none;
+        border: 1px solid #6f7ac2;
+        border-radius: 10px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+      #div2 {
+        margin-top:150px;
+    }
+    h2 {
+        color:#3a51e8;
+    }
+</style>
+
+@model List<MvcApplication1.Models.Song>
+<div id="div1">
+    <h2>添加MV</h2>
+    <div id="div2"></div>
+    <form action="~/Home/insertMV" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>歌曲名称：
+                    <select name="gqid">
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.gqid">@item.gqname</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>MV视频上传：<input name="file" type="file" id="file" required="required" oninvalid="setCustomValidity('请选择MV视频文件')" oninput="setCustomValidity('')" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="上传"/></td>
+            </tr>
+        </table>
+    </form>
+</div>

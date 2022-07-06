@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "gdye";
+    Layout = "~/Views/Shared/muban.cshtml";
+}
+<style type="text/css">
+    #div_bigboxgd {
+        display: flex;
+        height: 950px;
+    }
+
+    #div_gdzuo {
+        background-color: #ececec;
+        flex: 17;
+    }
+
+    #div_gdzhong {
+        flex: 65;
+    }
+
+    #div_gdyou {
+        background-color: #ececec;
+        flex: 17;
+    }
+
+    #div_gdzhong_text {
+        border-bottom: 2px outset red;
+        width: 100%;
+        margin-top: 30px;
+    }
+    
+        #div_gdzhong_text h1 {
+            margin-left: 30px;
+        }
+
+    #div_gdzhong_img tr {
+        flex: 10;
+        margin-left: 30px;
+    }
+
+    #div_gdzhong_img td img {
+        width: 200px;
+        height: 200px;
+        margin-left:30px;
+    }
+    #div_gdzhong_img td a {
+         margin-left:30px;
+    }
+    #div_gdzhong_img  tr {
+        position:relative;
+        left:20px;
+    }
+    #div_gdzhong_img {
+    margin-top:20px;
+    }
+</style>
+@model List<MvcApplication1.Models.Songlist>
+<div id="div_head">
+    @*次级选项卡*@
+    @Html.Partial("Partial1")
+</div>
+
+<div id="div_bigboxgd">
+    <div id="div_gdzuo"></div>
+    <div id="div_gdzhong">
+        <div id="div_gdzhong_text">
+            <h1>全部</h1>
+        </div>
+        <div id="div_gdzhong_img" style="overflow-x:auto;overflow-y:auto;height:800px;width:100%">
+            <table  style="text-align:center;width:98%;height:800px;">
+               <tbody>
+                @for (int i = 1; i <= Model.Count; )
+                {
+                    
+                    <tr>
+                        @for (int j = i; j <= Model.Count; j++)
+                        {
+                            i++;
+                            if (j % 4 == 0)
+                            {
+                                
+                   <td>
+                              <img src="~/gedanimg/@Model[j - 1].gdimg" onclick="tuijged('@Model[j - 1].gdid')"/><br />
+                                <a>@Model[j - 1].gdname </a>
+                            </td>
+                                break;
+                            }
+                            else
+                            {
+                 <td>
+                                <img src="~/gedanimg/@Model[j - 1].gdimg" onclick="tuijged('@Model[j - 1].gdid')"/><br />
+                                <a> @Model[j - 1].gdname</a>
+                            </td>
+                            }
+
+                        }
+                   
+                        
+                    </tr>
+                }
+</tbody>
+            </table>
+        </div>
+    </div>
+    <div id="div_gdyou">
+    </div>
+</div>
+<script>
+    function tuijged(remid) {
+        window.location.href = "/Home/remtj?remid=" + remid;
+    }
+</script>
+<script>
+    $("#div_gdzhong_img td").hover(function () {
+        $(this).find("img").fadeTo(200, .100);
+
+    }, function () {
+        $(this).find("img").fadeTo(200, 5);
+    })
+</script>

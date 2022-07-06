@@ -1,0 +1,198 @@
+﻿@{
+    ViewBag.Title = "MYgedan";
+    Layout = "~/Views/Shared/muban.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+    #bigbox {
+        display: flex;
+        height: 2000px;
+        border-top: 10px outset #7f0d0d;
+    }
+
+    #bigbox_left {
+        flex: 17;
+        background-color: #e8e8e8;
+    }
+
+    #bigbox_zhong {
+        flex: 64;
+        display: flex;
+    }
+
+    #bigbox_right {
+        flex: 17;
+        background-color: #e8e8e8;
+    }
+
+    #bigbox_zhong_left {
+        background-color: #ececec;
+        border-left: 1px solid gray;
+        border-right: 1px solid gray;
+        flex: 25;
+    }
+
+        #bigbox_zhong_left li {
+            line-height: 50px;
+        }
+
+    #bigbox_zhong_right {
+        flex: 75;
+    }
+
+    #bigbox_zhong_left tr:hover {
+        background-color: #e8e8e8;
+    }
+
+    table {
+        width: 100%;
+        border-top: 1px outset gray;
+    }
+
+        table tr td a {
+            position: relative;
+            top: -15px;
+            color: black;
+        }
+
+        table tr td img {
+            position: relative;
+            top: 10px;
+            left: 10px;
+        }
+
+    #popUpBox {
+        display: none;
+        box-shadow: gray 0px 0px 5px 0px;
+        height: 50%;
+        width: 40%;
+        background-color: white;
+        position: absolute;
+        top: 200px;
+        left: 480px;
+        display: none;
+    }
+
+    #popUpBox_head {
+
+        height: 35px;
+        background-color: black;
+    }
+
+        #popUpBox_head img {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 25px;
+            height: 35px;
+        }
+
+        #popUpBox_head p {
+            font-size: 20px;
+            color: white;
+            position: absolute;
+            top: 5px;
+        }
+
+    #gdname {
+        width: 300px;
+        height: 25px;
+    }
+
+    #popUpBox_body div {
+        margin-top: 50px;
+    }
+</style>
+
+<script src="~/Scripts/jquery-1.11.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<div id="bigbox">
+    <div id="bigbox_left"></div>
+    <div id="bigbox_zhong">
+        <div id="bigbox_zhong_left">
+            <ul>
+                <li><a>我的歌单</a>
+                    <input type="button" value="＋新建" id="ShowBox" />
+                    <table>
+
+                        @foreach (var item in ViewData["Mygedan"] as List<MvcApplication1.MYsonglist>)
+                        {<tr>
+
+                            <td>
+                                <img src="~/gedanimg/@item.gdimg" style="width:50px;height:50px;"/>
+                                <a style="margin-left: 15px;">@item.gdname</a>
+                            </td>
+                            <td>@Ajax.ActionLink("🔍", "MYgedancx",
+                                new { gdid = @item.gdid },
+                                new AjaxOptions { UpdateTargetId = "bigbox_zhong_right", InsertionMode = InsertionMode.Replace }
+                                )
+                            </td>
+
+                        </tr>    
+                        }
+
+
+                    </table>
+                </li>
+            </ul>
+        </div>
+        <div id="bigbox_zhong_right">
+        </div>
+    </div>
+    <div id="bigbox_right"></div>
+</div>
+
+<div id="popUpBox">
+    <div id="popUpBox_head">
+        <p>新建歌单：</p>
+        <img src="~/icon/退出.jpg" />
+    </div>
+    <form action="/Home/MYgedanxz" method="post" enctype="multipart/form-data">
+        <div id="popUpBox_body">
+            <div>
+                请输入歌单名:<input type="text" name="gdname" id="gdname" />
+                <br />
+            </div>
+            <div>
+                请选择照片: 
+                <input name="file" type="file" />
+                <br />
+            </div>
+            <div>
+                <input type="submit" value="上传" name="submit1" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@*新增歌单*@
+<script>
+    //点击新增弹出
+    $("#ShowBox").click(function () {
+        $("#popUpBox").css("display", "block")
+
+    })
+    //点击关闭
+    $("#popUpBox_head img").click(function () {
+        $("#popUpBox").css("display", "none")
+
+    })
+</script>
+
+<script type="text/javascript">
+    //颜色
+    //鼠标悬浮效果
+    $(function () {
+        //二级菜单
+        $("#bigbox_zhong_left li dl").hide();
+        $("#bigbox_zhong_left li").click(function () {
+            $(this).children("dl").toggle();
+
+        }, function () {
+            $(this).children("dl").toggle();
+
+        })
+    })
+
+</script>

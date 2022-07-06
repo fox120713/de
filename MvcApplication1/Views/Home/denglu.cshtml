@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "denglu";
+}
+
+@Styles.Render("~/Scripts/dengluStyleSheet1.css")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width-device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="sie-edge" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
+    
+<title>登录注册页面</title>
+    <style type="text/css">
+        #xb{
+            display:flex;   
+            width:150px;
+            color:white;
+        }
+        #radiox {
+            flex:50;
+        }
+        #radioy {
+             flex:50;
+        }
+        #fhsy {
+        position:relative;
+        left:-340px;
+        top:-215px;
+        }
+    </style>
+<!--图标库-->
+    <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
+
+</head>
+
+<body>
+
+<div class="container" id="container">
+  <div class="form-container sign-up-container">
+    <form action="/Home/zhuce">
+      <h1>注册</h1>
+      <div class="social-container"> <a href="#" class="social">
+        <ion-icon name="logo-facebook"></ion-icon>
+        </a> <a href="#" class="social"> 
+        <ion-icon name="logo-googleplus"></ion-icon>
+        </a> <a href="#" class="social">
+        <ion-icon name="logo-linkedin"></ion-icon>
+        </a> </div>
+      <span>注册开启您的易云旅程</span>
+      <input type="text" placeholder="请输入账号" name="newusername"  placeholder="请输入账号" required="required" oninvalid="setCustomValidity('请输入账号')" oninput="setCustomValidity('')"/>
+      <input type="password" placeholder="请输入密码" name="newuserpwd" placeholder="请输入密码" required="required" oninvalid="setCustomValidity('请输入密码')" oninput="setCustomValidity('')"/>
+         <div id="xb">
+       <input type="radio" id="radiox" name="x" checked="checked" value="男"/>男
+            <input type="radio" id="radioy" name="x" value="女" />女
+       </div>
+     <input value="注册" type="submit" />
+    </form>
+  </div>
+  <div class="form-container sign-in-container">
+    <form action="/Home/denglu" method="post">
+      <h1>登录</h1>
+      <div class="social-container"> <a href="#" class="social">
+        <ion-icon name="logo-facebook"></ion-icon>
+        </a> <a href="#" class="social">
+        <ion-icon name="logo-googleplus"></ion-icon>
+        </a> <a href="#" class="social">
+        <ion-icon name="logo-linkedin"></ion-icon>
+        </a> </div>
+      
+      <input type="text" placeholder="账号" name="username"  placeholder="请输入账号" required="required" oninvalid="setCustomValidity('请输入账号')" oninput="setCustomValidity('')">
+      <input type="password" placeholder="密码" name="userpwd"  placeholder="请输入账号" required="required" oninvalid="setCustomValidity('请输入账号')" oninput="setCustomValidity('')">
+      <input value="登录" type="submit">
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>欢迎回来</h1>
+        <p>请登录后开始您的易云旅程</p>
+        <button class="ghost" id="signIn">登录</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>欢迎光临</h1>
+        <p>请您注册账号，并与易云一起开始旅程</p>
+        <button class="ghost" id="signUp">注册</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script  src="~/dengluScripts/script.js"></script> 
+	
+</body>
+</html>

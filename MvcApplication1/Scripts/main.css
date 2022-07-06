@@ -1,0 +1,43 @@
+﻿#div_wenb {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    filter: brightness(150%);
+    display: flex;
+}
+
+#div_left, #div_right {
+    height: 100%;
+}
+
+
+#div_right {
+    flex: 88;
+    background-color:white;
+}
+
+#ul_daoh {
+    width: 100%;
+    height: 100%;
+}
+
+    #ul_daoh li {
+        height: 63px;
+        width:89%;
+        background-color: none;
+        color: white;
+        font-size: 15px;
+        line-height: 65px;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    #ul_daoh a {
+        color: white;
+    }
+    #ul_daoh li img {
+        height: 30px;
+        float: left;
+        margin-top: 15px;
+        margin-right: 5px;
+    }

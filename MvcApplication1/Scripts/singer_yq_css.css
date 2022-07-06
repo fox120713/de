@@ -1,0 +1,121 @@
+﻿.singer_yq_quan {
+    height: 80%;
+    width: 80%;
+    margin: 0px auto;
+    /*border: 5px solid black;*/
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px auto;
+}
+
+.singer_yq_top {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    /*border: 1px solid red;*/
+}
+
+.toux {
+    flex: 0.5;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 200px;
+    /*border: 1px solid green;*/
+}
+
+.id {
+    flex: 3;
+}
+
+.web_1 {
+    height: 30%;
+    width: 98%;
+    float: right;
+    /*border-bottom: 1px solid black;*/
+}
+
+.web_2 {
+    height: 70%;
+    width: 98%;
+    float: right;
+    /*border: 1px solid black;*/
+}
+
+.dont {
+    width: 100%;
+    height: 50%;
+    /*border: 1px solid green;*/
+}
+
+    .dont div {
+        width: 100%;
+        height: 50%;
+        /*border: 1px solid green;*/
+    }
+
+        .dont div p {
+            float: left;
+            height: 100%;
+            width: 80px;
+        }
+
+.xinx {
+    height: 50%;
+    width: 100%;
+}
+
+.singer_yq_boottom {
+    height: 50%;
+    width: 100%;
+    /*border: 1px solid red;*/
+}
+
+.grop_1, .grop_2 {
+    height: 50%;
+    width: 100%;
+    /*border: 1px solid red;*/
+}
+
+    .grop_1 dl {
+        float: left;
+        margin-left: 35px;
+        height: 100%;
+        width: 16%;
+    }
+
+    .grop_1 dt {
+        height: 75%;
+        width: 100%;
+        /*border: 1px solid black;*/
+    }
+
+    .grop_1 dd {
+        height: 25%;
+        font-size: 15px;
+        text-align: center;
+        color: grey;
+    }
+
+    .grop_2 dl {
+        float: left;
+        margin-left: 35px;
+        height: 100%;
+        width: 16%;
+    }
+
+    .grop_2 dt {
+        height: 75%;
+        width: 100%;
+        /*border: 1px solid black;*/
+    }
+
+    .grop_2 dd {
+        height: 25%;
+        font-size: 15px;
+        text-align: center;
+        color: grey;
+    }

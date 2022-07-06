@@ -1,0 +1,65 @@
+﻿<form action="/home/yinyuer" method="post" enctype="multipart/form-data">
+
+    <table cellspacing="0px" style="width: 80%; margin: 0px auto; margin-top: 5%; border: none">
+        <tr style="height: 80px;">
+            <td style="width: 30%; font-weight: bold; font-size: 30px;">歌曲名：</td>
+            <td style="font-size: 25px;">
+                <input id="Text1" type="text" name="gqname" placeholder="请输入歌曲名" required="required" oninvalid="setCustomValidity('请输入歌曲名')" oninput="setCustomValidity('')"/>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 10%; font-weight: bold; font-size: 30px;">专辑封面：</td>
+            <td style="font-size: 25px;">
+                <input type="file" name="Zhuanjimg"  placeholder="请选择专辑图片" required="required" oninvalid="setCustomValidity('请选择专辑图片')" oninput="setCustomValidity('')"/>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 10%; font-weight: bold; font-size: 30px;">歌曲封面：</td>
+            <td style="font-size: 25px;">
+                <input type="file" name="gqimg" placeholder="请选择歌曲图片" required="required" oninvalid="setCustomValidity('请选择歌曲图片')" oninput="setCustomValidity('')"/>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 10%; font-weight: bold; font-size: 30px;">专辑名：</td>
+            <td style="font-size: 25px;">
+                <input type="text" name="zjname" placeholder="请输入专辑名" required="required" oninvalid="setCustomValidity('请选择专辑名')" oninput="setCustomValidity('')"/>
+            </td>
+        </tr>
+        <tr style="height: 80px;">
+            <td style="width: 10%; font-weight: bold; font-size: 30px;">专辑类型：</td>
+            <td>
+                <select id="Select1" name="typename" style="width:120px;height:40px;font-size:30px;">
+                    <option value="1">流行</option>
+                    <option value="2">民谣</option>
+                    <option value="3">摇滚 </option>
+                    <option value="4">说唱</option>
+
+                </select>
+            </td>
+        </tr>
+        <tr style="height: 80px;">
+            <td style="width: 10%; font-weight: bold; font-size: 30px;">歌曲上传：</td>
+            <td style="font-size: 25px;">
+                <input type="file" name="mp3" placeholder="请选择歌曲" required="required" oninvalid="setCustomValidity('请选择歌曲')" oninput="setCustomValidity('')"/>
+            </td>
+        </tr>
+        <tr style="height: 80px;">
+            <td style="width: 10%; font-weight: bold; font-size: 30px;">歌曲简介：</td>
+            <td style="font-size: 25px;">
+                <textarea id="TextArea1" cols="20" rows="2" name="js" placeholder="请输入简介" required="required" oninvalid="setCustomValidity('请输入简介')" oninput="setCustomValidity('')"></textarea></td>
+        </tr>
+                <tr style="height: 80px;">
+            <td style="width: 10%; font-weight: bold; font-size: 30px;">歌词：</td>
+            <td style="font-size: 25px;">
+                <textarea id="TextArea2" cols="50" rows="6" name="gc" placeholder="请录入歌词" required="required" oninvalid="setCustomValidity('请录入歌词')" oninput="setCustomValidity('')"></textarea></td>
+        </tr>
+        <tr style="height: 80px;">
+            <td colspan="2"  style="text-align:center">
+                <input id="Button1" type="button" value="取消" style="width: 150px; height: 50px; font-size: 25px;" class="btn btn-primary btn-lg " />
+                <input id="Button2" type="submit" value="点击上传" style="width: 150px; height: 50px; text-align: center; font-size: 25px;" class="btn btn-primary btn-lg " />
+            </td>
+        </tr>
+
+    </table>
+
+</form>

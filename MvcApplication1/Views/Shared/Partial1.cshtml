@@ -1,0 +1,82 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+ 
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        body {
+        height:100px;
+        }
+        #bigbox {
+            display: flex;
+            background-color: #7f0d0d;
+            height: 43px;
+        }
+
+        #div_left {
+            flex: 20;
+        }
+
+        #div_head {
+            flex: 65;
+        }
+
+            #div_head ul li {
+                line-height: 25px;
+            }
+
+            #div_head li {
+                float: left;
+                width: 170px;
+                height: 40px;
+                font-size: 13px;
+                text-align: center;
+            }
+
+            #div_head a {
+                color: white;
+                height: 25px;
+                width: 70px;
+                border-radius: 10px;
+                display: block;
+                margin-top: 10px;
+            }
+
+                #div_head a:hover {
+                    background-color: gray;
+                    opacity: 0.5;
+                }
+
+        #div_rihgt {
+            flex: 15;
+        }
+    </style>
+</head>
+<body>
+    <div id="bigbox">
+        <div id="div_left"></div>
+        <div id="div_head">
+            <ul>
+                <li><a href="/Home/gxtj">个性推荐</a></li>
+                <li><a href="/Home/gdye" >歌单</a> </li>
+                <li><a href="/Home/phb">排行榜</a></li>
+                <li><a href="/Home/singer">歌手</a></li>
+                <li><a href="/Home/zxmusic">最新音乐</a></li>
+            </ul>
+        </div>
+        <div id="div_rihgt"></div>
+    </div>
+
+    
+    <script type="text/javascript">
+  
+  
+   
+    </script>
+</body>
+</html>

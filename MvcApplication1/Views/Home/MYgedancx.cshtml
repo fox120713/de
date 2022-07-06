@@ -1,0 +1,156 @@
+﻿   
+<style type="text/css">
+          #div_remtj_head {
+        margin-top:20px;
+    display:flex;
+    }
+    #div_remtj_head_left {
+        margin-left:30px;
+        flex:30;
+    }
+      #div_remtj_head_right {
+        flex:80;
+        margin-left:10px;
+    }
+       #div_remtj_head_right li{
+       margin-top:20px;
+       font-size:15px;
+    }
+    #div_remtj_head_left img{ 
+        width:300px;
+        height:300px;
+      
+    }
+    #div_remtj_head_right img{
+     width:100px;
+        height:100px;
+       
+    }
+     table {
+        margin:auto;
+        width:100%;
+    }
+    #div_remtj_foot {
+        margin-top:50px;
+    }
+    #div_remtj_foot_text {
+    border-bottom:2px outset red;
+    }
+        #div_remtj_foot_text a {
+        margin-left:10px;
+        }
+    #div_remtj_foot_img {
+        margin-top:30px;
+    }
+      #bfimg {
+        width:20px;
+        height:20px;
+       margin-top:10px;
+       
+    }
+   #div_remtj_foot_img input {
+   background-color:red;
+         color:white;
+         border-radius:10px;
+         width:50px;
+         height:25px;
+          margin-top:20px;
+          border:none;
+    }
+    #delegd {
+         background-color:red;
+         color:white;
+         border-radius:10px;
+         width:50px;
+         height:25px;
+          margin-top:20px;
+          border:none;
+    }
+</style>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+ <div id="div_remtj_body_zhong">
+        <div id="zhong_head">
+        @foreach (var item in ViewData["remtj"] as List<MvcApplication1.remtjtiaozhuan>)
+        {
+            <div id="div_remtj_head">
+            <div id="div_remtj_head_left">
+                <img src="~/gedanimg/@item.gdimg" /></div>
+            <div id="div_remtj_head_right">
+                <ul>
+                    <li>
+                        <img src="~/userimg/@item.userimg" /></li>
+                    <li>Up主：<a href="#">@item.username</a></li>
+                    <li>标题：<input type="button" name="typename" value="@item.gdname " /></li>
+                    <li><input type="button" id="delegd" value="删除" onclick="MYgedandele('@item.gdid','@item.gdname')"/></li>
+                </ul>
+            </div>
+        </div>
+        }
+            </div>
+        <div id="div_remtj_foot">
+            <div id="div_remtj_foot_text">
+                <a>歌曲列表</a>
+            </div>
+            <div id="div_remtj_foot_img">
+                @{var i = 0;}
+                <table>
+                    <tr>
+                        <td>排行顺序</td>
+                        <td>歌曲标题</td>
+                        <td>歌曲</td>
+                        <td>歌手名</td>
+                        <td>专辑名称</td>
+                        
+                    </tr>
+                    @foreach (var item in ViewData["ged"] as List<MvcApplication1.gedansong>)
+                    {
+                        i += 1;
+                        <tr>
+                            <td>
+                                @i
+                            </td>
+                            <td>@item.gq</td>
+                            <td>
+                                <a href="/Home/gequ?gqid=@item.gqid" target="iframe0"><img src="~/icon/播放.jpg" id="bfimg"/></a>
+                                
+                            </td>
+                            <td>@item.gsname</td>
+                            <td>@item.zjname
+                            </td>
+                            <td><input type="button" value="删除" onclick="MYgedandelegq('@item.gqid    ','@item.gq    ')"/></td>
+                        </tr>   
+                    }
+                   
+                </table>
+                
+               
+            </div>
+        </div>
+    </div>
+<script>
+    function MYgedandele(gdid,gdname) {
+        var iret = confirm("真的要删除歌单：《"+gdname+"》吗？");
+        if (iret==true) {
+            window.location.href="/Home/MYgedandele?gdid="+gdid;
+        }
+    
+    }
+    
+</script>
+<script>
+    function MYgedandelegq(gqid,gq) {
+        var iret = confirm("真的要删除歌曲：《"+gq+"》吗？");
+        if (iret==true) {
+            window.location.href="/Home/MYgedandelegq?gqid="+gqid;
+        }
+    }
+</script>
+<script>
+    $("#div_remtj_foot_img td").hover(function () {
+        $(this).find("img").fadeTo(200, .100);
+
+    }, function () {
+        $(this).find("img").fadeTo(200, 5);
+    })
+</script>

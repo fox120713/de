@@ -1,0 +1,153 @@
+﻿<style type="text/css">
+    table {
+        text-align: center;
+    }
+
+        /*table tr:hover {
+            background-color: #8888FF;
+        }*/
+
+        table img {
+            width: 100px;
+            height: 80px;
+        }
+
+    #div1_head {
+        text-align: center;
+    }
+
+    #t1 {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        #t1 td, #t1 th {
+            font-size: 1em;
+            border: 1px solid #1094f2;
+            padding: 3px 7px 2px 7px;
+        }
+
+        #t1 th {
+            font-size: 1.1em;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: #029789;
+            color: #26569d;
+        }
+
+        #t1 tr:hover {
+            color: #000000;
+            background-color: #94ef9a;
+        }
+
+    input[type='text'] {
+        width: 260px;
+        height: 40px;
+        font-size: 30px;
+        outline: none;
+        border: 1px solid #6f7ac2;
+        border-radius: 2px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+
+    input[type='submit']{
+        width: 80px;
+        height: 35px;
+        color: white;
+        position: relative;
+        top: -5px;
+        background-color: #1094f2;
+        outline: none;
+        border: 1px solid #6f7ac2;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+
+    input[type='submit']:hover {
+            background-color: #26569d;
+            transition: 0.3s 0.1s;
+        }
+
+    input[type='button']{
+        width: 80px;
+        height: 35px;
+        color: red;
+        position: relative;
+        top: -5px;
+        background-color: #1094f2;
+        outline: none;
+        border: 1px solid #6f7ac2;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #6f7ac2;
+    }
+        
+    input[type='button']:hover {
+            background-color: #26569d;
+            transition: 0.3s 0.1s;
+        }
+        h2 {
+        color:#3a51e8;
+    }
+</style>
+@model List<MvcApplication1.Models.Users>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<div id="div1">
+    <div id="div1_head">
+        @using (Ajax.BeginForm("updateuser", new AjaxOptions
+    {
+        UpdateTargetId = "div1",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "Post"
+    }))
+        { 
+            <h2 style="text-align: left">管理账户</h2>
+            <br />
+            <input type="text" name="username" />
+            <input type="submit" value="查询" />
+        }
+    </div>
+    <br />
+    <table id="t1">
+        <tr>
+            <th>用户编号</th>
+            <th>用户姓名</th>
+            <th>用户密码</th>
+            <th>用户性别</th>
+            <th>用户年龄</th>
+            <th>用户生日</th>
+            <th>用户照片</th>
+            <th>用户类型</th>
+            <th>编辑</th>
+            <th>删除</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr class="alt">
+                <td>@item.userid</td>
+                <td>@item.username</td>
+                <td>@item.userpwd</td>
+                <td>@item.sex</td>
+                <td>@item.age</td>
+                <td>@item.brith.ToString("yyyy年MM月dd日")</td>
+                <td>
+                    <img src="~/userimg/@item.usersimg"/></td>
+                @if (item.vip == 1)
+                { 
+                    <td>@(item.vip == 1 ? "VIP用户" : "普通用户")</td>
+                }
+                else
+                {
+                    <td>@(item.vip == 1 ? "VIP用户" : "普通用户")</td>
+                }
+                <td><a href="~/Home/updates?id=@item.userid">编辑</a>
+                </td>
+
+                <td><a href="~/Home/del?id=@item.userid" onclick="return confirm('是否确认删除 @item.username 的所有信息？')">
+                    <input type="button" value="删除" /></a></td>
+            </tr>
+        }
+    </table>
+</div>

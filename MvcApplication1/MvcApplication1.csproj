@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9D4B093B-FBC1-477A-A8C6-089720FFB924}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcApplication1</RootNamespace>
+    <AssemblyName>MvcApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="gedansong.cs" />
+    <Compile Include="gequxq.cs" />
+    <Compile Include="gqredu.cs" />
+    <Compile Include="LayuiJson.cs" />
+    <Compile Include="Models\Buyjl.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\gs_gq.cs" />
+    <Compile Include="Models\gs_gq_rd.cs" />
+    <Compile Include="Models\gs_gq_zj.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MVtype.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Singer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SingerLX.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SingerRD.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Song.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Songlist.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Songlistss.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SongRD.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Songtype.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\song_songrd.cs" />
+    <Compile Include="Models\Userjl.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserSinger.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\yh_gs_gq.cs" />
+    <Compile Include="Models\Zhuanj.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MV.cs" />
+    <Compile Include="MYsonglist.cs" />
+    <Compile Include="newgeqpaih.cs" />
+    <Compile Include="newmqges.cs" />
+    <Compile Include="newrmtj.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="newzjtj.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="remtjtiaozhuan.cs" />
+    <Compile Include="rmtjmqgs.cs" />
+    <Compile Include="rmtjzjtj.cs" />
+    <Compile Include="shouchang.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\PagedList.css" />
+    <Content Include="fenyeScripts\layui.css" />
+    <Content Include="fenyeScripts\layui.js" />
+    <Content Include="gedanimg\1.jpg" />
+    <Content Include="gedanimg\10.jpg" />
+    <Content Include="gedanimg\11.jpg" />
+    <Content Include="gedanimg\12.jpg" />
+    <Content Include="gedanimg\13.jpg" />
+    <Content Include="gedanimg\14.jpg" />
+    <Content Include="gedanimg\15.jpg" />
+    <Content Include="gedanimg\16.jpg" />
+    <Content Include="gedanimg\17.jpg" />
+    <Content Include="gedanimg\18.jpg" />
+    <Content Include="gedanimg\19.jpg" />
+    <Content Include="gedanimg\2.jpg" />
+    <Content Include="gedanimg\20.jpg" />
+    <Content Include="gedanimg\21.jpg" />
+    <Content Include="gedanimg\22.jpg" />
+    <Content Include="gedanimg\23.jpg" />
+    <Content Include="gedanimg\24.jpg" />
+    <Content Include="gedanimg\25.jpg" />
+    <Content Include="gedanimg\26.jpg" />
+    <Content Include="gedanimg\27.jpg" />
+    <Content Include="gedanimg\28.jpg" />
+    <Content Include="gedanimg\29.jpg" />
+    <Content Include="gedanimg\3.jpg" />
+    <Content Include="gedanimg\30.jpg" />
+    <Content Include="gedanimg\31.jpg" />
+    <Content Include="gedanimg\32.jpg" />
+    <Content Include="gedanimg\33.jpg" />
+    <Content Include="gedanimg\34.jpg" />
+    <Content Include="gedanimg\35.jpg" />
+    <Content Include="gedanimg\36.jpg" />
+    <Content Include="gedanimg\37.jpg" />
+    <Content Include="gedanimg\38.jpg" />
+    <Content Include="gedanimg\39.jpg" />
+    <Content Include="gedanimg\4.jpg" />
+    <Content Include="gedanimg\40.jpg" />
+    <Content Include="gedanimg\41.jpg" />
+    <Content Include="gedanimg\5.jpg" />
+    <Content Include="gedanimg\6.jpg" />
+    <Content Include="gedanimg\7.jpg" />
+    <Content Include="gedanimg\8.jpg" />
+    <Content Include="gedanimg\9.jpg" />
+    <Content Include="gnScripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="gnScripts\StyleSheet1.css" />
+    <Content Include="dengluScripts\script.js" />
+    <Content Include="Global.asax" />
+    <Content Include="gqimg\11.jpg" />
+    <Content Include="gqimg\一半.jpg" />
+    <Content Include="gqimg\丑八怪.jpg" />
+    <Content Include="gqimg\会不会.jpg" />
+    <Content Include="gqimg\你还要我怎样.jpg" />
+    <Content Include="gqimg\修炼爱情.jpg" />
+    <Content Include="gqimg\假装.jpg" />
+    <Content Include="gqimg\像我这样的人.jpg" />
+    <Content Include="gqimg\光年之外.jpg" />
+    <Content Include="gqimg\其实.jpg" />
+    <Content Include="gqimg\刚刚好.jpg" />
+    <Content Include="gqimg\初学者.jpg" />
+    <Content Include="gqimg\如果这都不算爱.jpg" />
+    <Content Include="gqimg\孤勇者.jpg" />
+    <Content Include="gqimg\安河桥.jpg" />
+    <Content Include="gqimg\就忘了吧.jpg" />
+    <Content Include="gqimg\意外.jpg" />
+    <Content Include="gqimg\数字人生.jpg" />
+    <Content Include="gqimg\断桥残雪.jpg" />
+    <Content Include="gqimg\新地球.jpg" />
+    <Content Include="gqimg\曹操.jpg" />
+    <Content Include="gqimg\消愁.jpg" />
+    <Content Include="gqimg\淘汰.jpg" />
+    <Content Include="gqimg\演员.jpg" />
+    <Content Include="gqimg\烟火里的尘埃.jpg" />
+    <Content Include="gqimg\稻香.jpg" />
+    <Content Include="gqimg\素颜.jpg" />
+    <Content Include="gqimg\红色高跟鞋.jpg" />
+    <Content Include="gqimg\绅士.jpg" />
+    <Content Include="gqimg\经济舱.jpg" />
+    <Content Include="gqimg\自定义.jpg" />
+    <Content Include="gqimg\哪里都是你.jpg" />
+    <Content Include="gsimg\刘大壮.jpg" />
+    <Content Include="gsimg\刘聪.jpg" />
+    <Content Include="gsimg\华晨宇.jpg" />
+    <Content Include="gsimg\周杰伦.jpg" />
+    <Content Include="gsimg\宋冬野.jpg" />
+    <Content Include="gsimg\张学友.jpg" />
+    <Content Include="gsimg\林俊杰.jpg" />
+    <Content Include="gsimg\林子祥.jpg" />
+    <Content Include="gsimg\毛不易.jpg" />
+    <Content Include="gsimg\蔡健雅.jpg" />
+    <Content Include="gsimg\薛之谦.jpg" />
+    <Content Include="gsimg\许嵩.jpg" />
+    <Content Include="gsimg\邓紫棋.jpg" />
+    <Content Include="gsimg\队长.jpg" />
+    <Content Include="gsimg\陈奕迅.jpg" />
+    <Content Include="icon\vip.png" />
+    <Content Include="icon\_详情.png" />
+    <Content Include="icon\主题.png" />
+    <Content Include="icon\修改.png" />
+    <Content Include="icon\添加.png" />
+    <Content Include="icon\播放.jpg" />
+    <Content Include="icon\播放记录.png" />
+    <Content Include="icon\文件夹.png" />
+    <Content Include="icon\用户.png" />
+    <Content Include="icon\LOGO.png" />
+    <Content Include="icon\上一页.png" />
+    <Content Include="icon\下一页.png" />
+    <Content Include="icon\下载.png" />
+    <Content Include="icon\列表.png" />
+    <Content Include="icon\历史记录.png" />
+    <Content Include="icon\发现.png" />
+    <Content Include="icon\搜索.png" />
+    <Content Include="icon\视频.png" />
+    <Content Include="icon\退出 .png" />
+    <Content Include="icon\退出.jpg" />
+    <Content Include="images\back.jpg" />
+    <Content Include="images\banner.jpg" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\bigbang.jpg" />
+    <Content Include="images\but.png" />
+    <Content Include="images\next.jpg" />
+    <Content Include="images\next1.jpg" />
+    <Content Include="images\pause.jpg" />
+    <Content Include="images\pause2.jpg" />
+    <Content Include="images\player.jpg" />
+    <Content Include="images\player1.jpg" />
+    <Content Include="images\prev.jpg" />
+    <Content Include="images\prev1.jpg" />
+    <Content Include="images\sugar.jpg" />
+    <Content Include="images\xjy.jpg" />
+    <Content Include="images\zjl.jpg" />
+    <Content Include="img\1.png" />
+    <Content Include="lunboimg\5.jpg" />
+    <Content Include="lunboimg\3.jpg" />
+    <Content Include="lunboimg\1.jpg" />
+    <Content Include="lunboimg\4.jpg" />
+    <Content Include="lunboimg\2.jpg" />
+    <Content Include="mp3\11.mp3" />
+    <Content Include="mp3\Letting Go.mp3" />
+    <Content Include="mp3\STAY.mp3" />
+    <Content Include="mp3\Wake %28Live%29.mp3" />
+    <Content Include="mp3\一半.mp3" />
+    <Content Include="mp3\丑八怪.mp3" />
+    <Content Include="mp3\他不懂.mp3" />
+    <Content Include="mp3\会不会.mp3" />
+    <Content Include="mp3\你还要我怎样.mp3" />
+    <Content Include="mp3\修炼爱情.mp3" />
+    <Content Include="mp3\假装.mp3" />
+    <Content Include="mp3\像我这样的人%281%29.mp3" />
+    <Content Include="mp3\像我这样的人.mp3" />
+    <Content Include="mp3\光年之外.mp3" />
+    <Content Include="mp3\其实.mp3" />
+    <Content Include="mp3\再见.mp3" />
+    <Content Include="mp3\刚刚好.mp3" />
+    <Content Include="mp3\初学者.mp3" />
+    <Content Include="mp3\十年.mp3" />
+    <Content Include="mp3\哪里都是你.mp3" />
+    <Content Include="mp3\多远都要在一起.mp3" />
+    <Content Include="mp3\大眠.mp3" />
+    <Content Include="mp3\天上的星星不说话·2022.mp3" />
+    <Content Include="mp3\天外来物.mp3" />
+    <Content Include="mp3\如果这都不算爱.mp3" />
+    <Content Include="mp3\孤勇者.mp3" />
+    <Content Include="mp3\安河桥.mp3" />
+    <Content Include="mp3\就忘了吧.mp3" />
+    <Content Include="mp3\布拉格广场.mp3" />
+    <Content Include="mp3\年少有为.mp3" />
+    <Content Include="mp3\想你.mp3" />
+    <Content Include="mp3\意外.mp3" />
+    <Content Include="mp3\我好像在哪见过你.mp3" />
+    <Content Include="mp3\数字人生.mp3" />
+    <Content Include="mp3\断桥残雪.mp3" />
+    <Content Include="mp3\新地球%281%29.mp3" />
+    <Content Include="mp3\新地球.mp3" />
+    <Content Include="mp3\曹操.mp3" />
+    <Content Include="mp3\有何不可%281%29.mp3" />
+    <Content Include="mp3\有何不可.mp3" />
+    <Content Include="mp3\水星记.mp3" />
+    <Content Include="mp3\消愁%281%29.mp3" />
+    <Content Include="mp3\消愁.mp3" />
+    <Content Include="mp3\淘汰%281%29.mp3" />
+    <Content Include="mp3\淘汰.mp3" />
+    <Content Include="mp3\温岚,周杰伦 - 屋顶.mp3" />
+    <Content Include="mp3\演员.mp3" />
+    <Content Include="mp3\烟火里的尘埃.mp3" />
+    <Content Include="mp3\爱你.mp3" />
+    <Content Include="mp3\第一次爱的人.mp3" />
+    <Content Include="mp3\素颜.mp3" />
+    <Content Include="mp3\红色高跟鞋.mp3" />
+    <Content Include="mp3\绅士.mp3" />
+    <Content Include="mp3\经济舱.mp3" />
+    <Content Include="mp3\这世界那么多人.mp3" />
+    <Content Include="mp3\雨爱.mp3" />
+    <Content Include="mp4\1.mp4" />
+    <Content Include="mp4\10.mp4" />
+    <Content Include="mp4\15.mp4" />
+    <Content Include="mp4\19.mp4" />
+    <Content Include="mp4\2.mp4" />
+    <Content Include="mp4\3.mp4" />
+    <Content Include="mp4\31.mp4" />
+    <Content Include="mp4\32.mp4" />
+    <Content Include="mp4\4.mp4" />
+    <Content Include="mp4\5.mp4" />
+    <Content Include="mp4\7.mp4" />
+    <Content Include="mp4\9.mp4" />
+    <Content Include="Scriptsguanliyuan\guanliyuanStyle.css" />
+    <Content Include="Scripts\bootstrap.css" />
+    <Content Include="Scripts\button_ys.css" />
+    <Content Include="Scripts\dengluStyleSheet1.css" />
+    <Content Include="Scripts\div_head.css" />
+    <Content Include="Scripts\jquery-1.11.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\main.css" />
+    <Content Include="Scripts\phb_css.css" />
+    <Content Include="Scripts\singer_css.css" />
+    <Content Include="Scripts\singer_yq_css.css" />
+    <Content Include="Scripts\StyleSheet1.css" />
+    <Content Include="Scripts\TuPxuanzhuanStyle.css" />
+    <Content Include="Scripts\yh_gd_css.css" />
+    <Content Include="Scripts\yh_gjgl_css.css" />
+    <Content Include="Scripts\yh_mmxg_css.css" />
+    <Content Include="Scripts\yh_tgjl_css.css" />
+    <Content Include="Scripts\yh_xfjl_css.css" />
+    <Content Include="Scripts\yh_xq_css.css" />
+    <Content Include="Scripts\yh_xz_css.css" />
+    <Content Include="Scripts\yinyuer_css.css" />
+    <Content Include="Scripts\zx_css.css" />
+    <Content Include="userimg\1.jpg" />
+    <Content Include="userimg\10.jpg" />
+    <Content Include="userimg\11.jpg" />
+    <Content Include="userimg\12.jpg" />
+    <Content Include="userimg\13.jpg" />
+    <Content Include="userimg\14.jpg" />
+    <Content Include="userimg\15.jpg" />
+    <Content Include="userimg\16.jpg" />
+    <Content Include="userimg\17.jpg" />
+    <Content Include="userimg\18.jpg" />
+    <Content Include="userimg\19.jpg" />
+    <Content Include="userimg\2.jpg" />
+    <Content Include="userimg\20.jpg" />
+    <Content Include="userimg\21.jpg" />
+    <Content Include="userimg\22.jpg" />
+    <Content Include="userimg\23.jpg" />
+    <Content Include="userimg\24.jpg" />
+    <Content Include="userimg\25.jpg" />
+    <Content Include="userimg\26.jpg" />
+    <Content Include="userimg\27.jpg" />
+    <Content Include="userimg\28.jpg" />
+    <Content Include="userimg\29.jpg" />
+    <Content Include="userimg\3.jpg" />
+    <Content Include="userimg\30.jpg" />
+    <Content Include="userimg\31.jpg" />
+    <Content Include="userimg\32.jpg" />
+    <Content Include="userimg\33.jpg" />
+    <Content Include="userimg\34.jpg" />
+    <Content Include="userimg\35.jpg" />
+    <Content Include="userimg\36.jpg" />
+    <Content Include="userimg\37.jpg" />
+    <Content Include="userimg\38.jpg" />
+    <Content Include="userimg\39.jpg" />
+    <Content Include="userimg\4.jpg" />
+    <Content Include="userimg\40.jpg" />
+    <Content Include="userimg\41.jpg" />
+    <Content Include="userimg\42.jpg" />
+    <Content Include="userimg\43.jpg" />
+    <Content Include="userimg\44.jpg" />
+    <Content Include="userimg\45.jpg" />
+    <Content Include="userimg\46.jpg" />
+    <Content Include="userimg\47.jpg" />
+    <Content Include="userimg\48.jpg" />
+    <Content Include="userimg\49.jpg" />
+    <Content Include="userimg\5.jpg" />
+    <Content Include="userimg\50.jpg" />
+    <Content Include="userimg\51.jpg" />
+    <Content Include="userimg\52.jpg" />
+    <Content Include="userimg\53.jpg" />
+    <Content Include="userimg\54.jpg" />
+    <Content Include="userimg\55.jpg" />
+    <Content Include="userimg\56.jpg" />
+    <Content Include="userimg\57.jpg" />
+    <Content Include="userimg\58.jpg" />
+    <Content Include="userimg\6.jpg" />
+    <Content Include="userimg\7.jpg" />
+    <Content Include="userimg\8.jpg" />
+    <Content Include="userimg\9.jpg" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Zhuanjimg\11.jpg" />
+    <Content Include="Zhuanjimg\一半.jpg" />
+    <Content Include="Zhuanjimg\会不会.jpg" />
+    <Content Include="Zhuanjimg\修炼爱情.jpg" />
+    <Content Include="Zhuanjimg\假装.jpg" />
+    <Content Include="Zhuanjimg\像我这样的人.jpg" />
+    <Content Include="Zhuanjimg\光年之外.jpg" />
+    <Content Include="Zhuanjimg\刚刚好.jpg" />
+    <Content Include="Zhuanjimg\初学者.jpg" />
+    <Content Include="Zhuanjimg\哪里都是你.jpg" />
+    <Content Include="Zhuanjimg\如果这都不算爱.jpg" />
+    <Content Include="Zhuanjimg\孤勇者.jpg" />
+    <Content Include="Zhuanjimg\安和桥北.jpg" />
+    <Content Include="Zhuanjimg\就忘了吧.jpg" />
+    <Content Include="Zhuanjimg\意外.jpg" />
+    <Content Include="Zhuanjimg\数字人生.jpg" />
+    <Content Include="Zhuanjimg\断桥残雪.jpg" />
+    <Content Include="Zhuanjimg\新地球.jpg" />
+    <Content Include="Zhuanjimg\曹操.jpg" />
+    <Content Include="Zhuanjimg\消愁.jpg" />
+    <Content Include="Zhuanjimg\淘汰.jpg" />
+    <Content Include="Zhuanjimg\烟火里的尘埃.jpg" />
+    <Content Include="Zhuanjimg\稻香.jpg" />
+    <Content Include="Zhuanjimg\素颜.jpg" />
+    <Content Include="Zhuanjimg\红色高跟鞋.jpg" />
+    <Content Include="Zhuanjimg\绅士.jpg" />
+    <Content Include="Zhuanjimg\经济舱.jpg" />
+    <Content Include="Zhuanjimg\自定义.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\muban.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Partial1.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\gxtj.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\lunbotj.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\remtj.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\zjtj.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\mqgs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\gdye.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\gequ.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\MYgedan.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\denglu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\guanli.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\cx.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\MYgedancx.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\MV.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\deleteSong.cshtml" />
+    <Content Include="Views\Home\insertMV.cshtml" />
+    <Content Include="Views\Home\insertsinger.cshtml" />
+    <Content Include="Views\Home\insertSong.cshtml" />
+    <Content Include="Views\Home\insertZhuanji.cshtml" />
+    <Content Include="Views\Home\updates.cshtml" />
+    <Content Include="Views\Home\updateuser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Partial2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\phb.cshtml" />
+    <Content Include="Views\Home\phb_table.cshtml" />
+    <Content Include="Views\Home\singer.cshtml" />
+    <Content Include="Views\Home\xs.cshtml" />
+    <Content Include="Views\Home\yh_gjgl.cshtml" />
+    <Content Include="Views\Home\yh_mmxg.cshtml" />
+    <Content Include="Views\Home\yh_xq.cshtml" />
+    <Content Include="Views\Home\yinyuer.cshtml" />
+    <Content Include="Views\Home\zxmusic.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\yinyueadd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\guanliyuan.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\insertSongRD.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56210/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

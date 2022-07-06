@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/muban.cshtml";
+}
+@*<link href="~/Scripts/main.css" rel="stylesheet"  type="text/css"/>*@
+<script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+    #s {
+    color:yellow;
+    }
+</style>
+<div id="div_wenb">
+    <div id="div_right">
+        @*次级选项卡*@
+        @Html.Partial("Partial1")
+        @*右*@
+    </div>
+</div>
+<div id="s">
+    首页
+</div>
+
+<script type="text/javascript">
+    $(function () {
+
+        //默认显示主页
+    
+        @*变色*@
+        $("#group_1").click(function () {
+            var black = " rgb(0, 0, 0)";
+            var color = $("#head").css("background-color");
+            //alert(color)
+            if (color != black) {
+                $("#ul_daoh").css("background-color", color);
+                $("#ul_daoh").css("filter", "brightness(80%)");
+                $("#ul_daoh li:hover").css("background-color", " brightness(10%)");
+            }
+        })
+
+        $("#group_2 ").click(function () {
+            var black = " rgb(0, 0, 0)";
+            var color = $("#head").css("background-color");
+            //alert(color)
+            if (color != black) {
+                $("#ul_daoh").css("background-color", color);
+                $("#ul_daoh").css("filter", "brightness(80%)");
+                $("#ul_daoh li:hover").css("background-color", " brightness(10%)");
+
+            }
+        })
+
+
+    })
+</script>

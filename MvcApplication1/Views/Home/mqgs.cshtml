@@ -1,0 +1,212 @@
+﻿@{
+    ViewBag.Title = "mqgs";
+    Layout = "~/Views/Shared/muban.cshtml";
+}
+
+
+<style type="text/css">
+     /*table 样式*/
+    table {
+        border-collapse: collapse;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+        table td, table th {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+
+        table thead th {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+
+        table tr : nth-child(odd) {
+            background: #fff;
+        }
+
+        table tr:nth-child(even) {
+            background: #F5FAFA;
+        }
+
+    #div_remtj_body {
+        display: flex;
+        height: 2000px;
+    }
+
+    #div_remtj_body_zuo {
+        background-color: #ececec;
+        flex: 17;
+    }
+
+    #div_remtj_body_zhong {
+        flex: 65;
+    }
+
+    #div_remtj_body_you {
+        background-color: #ececec;
+        flex: 17;
+    }
+    #div_remtj_head {
+        margin-top:20px;
+    display:flex;
+    }
+    #div_remtj_head_left {
+        margin-left:30px;
+        flex:30;
+    }
+      #div_remtj_head_right {
+        flex:80;
+        margin-left:10px;
+    }
+       #div_remtj_head_right li{
+       margin-top:20px;
+       font-size:15px;
+    }
+    #div_remtj_head_left img{ 
+        width:300px;
+        height:300px;
+    }
+    #div_remtj_head_right img{
+     width:100px;
+        height:100px;
+       
+    }
+     table {
+        border:1px solid red;
+        text-align:center;
+        margin:auto;
+        width:100%;
+    }
+    #div_remtj_foot {
+        margin-top:50px;
+    }
+    #div_remtj_foot_text {
+    border-bottom:2px outset red;
+    }
+        #div_remtj_foot_text a {
+        margin-left:10px;
+        }
+    #div_remtj_foot_img {
+        margin-top:30px;
+    }
+      #bfimg {
+        width:25px;
+        height:25px;
+
+    }
+       #dz {
+    display:none;
+    color:#42426F;
+    }
+    #sczj {
+        color:#9F5F9F;
+    }
+   </style>
+<div id="div_head">
+    @*次级选项卡*@
+    @Html.Partial("Partial1")
+</div>
+<div id="div_remtj_body">
+    <div id="div_remtj_body_zuo"></div>
+    <div id="div_remtj_body_zhong">
+        <div id="zhong_head">
+        @foreach (var item in ViewData["mqgs"] as List<MvcApplication1.rmtjmqgs>)
+        {
+            <div id="div_remtj_head">
+            <div id="div_remtj_head_left">
+                <img src="~/gsimg/@item.gsimg" /></div>
+            <div id="div_remtj_head_right">
+                <ul>                     
+                    <li><h3>歌手：<a href="#">@item.gsname</a></h3></li>        
+                    <li>标题：<input type="button" name="typename" value="@item.gstype " /></li>
+                    <li>歌手热度:@item.gshot
+                    </li>
+                     <li><a href="/Home/dzgs?gsid=@item.gsid" id="sczj">❤</a></li>
+                    <li><p id="dz">可持续为自己喜爱的歌手点赞哟！</p></li>
+                </ul>
+            </div>
+        </div>
+        }
+            </div>
+        <div id="div_remtj_foot">
+            <div id="div_remtj_foot_text">
+                <a>歌曲列表</a>
+            </div>
+            <div id="div_remtj_foot_img">
+                @{var i = 0;}
+                <table>
+                    <tr>
+                        <td>排行顺序</td>
+                        <td>歌曲标题</td>
+                        <td>歌曲</td>
+                        <td>歌手名</td>
+                        <td>专辑名称</td>
+                        
+                    </tr>
+                    @foreach (var item in ViewData["ged"] as List<MvcApplication1.gedansong>)
+                    {
+                        i += 1;
+                        <tr>
+                            <td>
+                                @i
+                            </td>
+                            <td>@item.gq</td>
+                            <td>
+                                 <a href="/Home/gequ?gqid=@item.gqid" target="iframe0"><img src="~/icon/播放.jpg" id="bfimg"/></a>
+                            </td>
+                            <td>@item.gsname</td>
+                            <td>@item.zjname
+                            </td>
+                        </tr>   
+                    }
+                   
+                </table>
+                
+               
+            </div>
+        </div>
+    </div>
+    <div id="div_remtj_body_you"></div>
+</div>
+<script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript"></script>
+@*点赞*@
+<script type="text/javascript">
+    $(function () {
+        $("#sczj").mouseover(function () {
+            $("#dz").css("display", "block")
+            $("#sczj").css("color", "#DB7093")
+        })
+        $("#sczj").mouseout(function () {
+            $("#dz").css("display", "none")
+            $("#sczj").css("color", "#9F5F9F")
+        })
+    })
+</script>
+
+<script>
+    //音乐在页面能只能播放一首
+    var audios = document.getElementsByTagName("audio");
+    function pauseAll() {
+        var self = this;
+        [].forEach.call(audios, function (i) {
+            // 将audios中其他的audio全部暂停
+            i !== self && i.pause();
+        })
+    }
+    // 给play事件绑定暂停函数
+    [].forEach.call(audios, function (i) {
+        i.addEventListener("play", pauseAll.bind(i));
+    })
+
+</script>
+<script>
+    $("#div_remtj_foot_img td").hover(function () {
+        $(this).find("img").fadeTo(200, .100);
+
+    }, function () {
+        $(this).find("img").fadeTo(200, 5);
+    })
+</script>

@@ -1,0 +1,136 @@
+﻿a {
+    list-style: none;
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px auto;
+}
+
+.center {
+    height: 100%;
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    /*border: 5px solid black;*/
+}
+
+.center_left {
+    flex: 1;
+    /*border: 1px solid green;*/
+}
+
+    .center_left ul {
+        height: 100%;
+        width: 100%;
+        border-right:5px solid red;
+    }
+
+        .center_left ul li {
+            height: 60px;
+            width: 100%;
+            /*border-bottom: 5px solid red;*/
+        }
+
+.ys {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    line-height: 60px;
+}
+
+.center_right {
+    flex: 4;
+}
+
+.center_right_text {
+    height: 15%;
+    width: 100%;
+    /*border: 2px solid green;*/
+}
+
+.text_ys {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    float: left;
+}
+
+.little_card {
+    height: 80%;
+    width: 25%;
+    font-size: 20px;
+    color: white;
+    font-family: 微软雅黑;
+    line-height: 45px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+    /*border: 1px solid red;*/
+    background: linear-gradient(-45deg,#FF6347, #B22222, #C71585, #800000);
+    background-size: 600% 600%;
+    animation: gradientBG 20s ease infinite;
+    margin: 0px initial;
+    float: left;
+}
+
+.card {
+    height: 90%;
+    width: 18%;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 40px;
+    color: white;
+    font-family: 微软雅黑;
+    line-height: 125px;
+    text-align: center;
+    /*border: 1px solid red;*/
+    background: linear-gradient(-45deg,#FF6347, #B22222, #C71585, #800000);
+    background-size: 600% 600%;
+    animation: gradientBG 20s ease infinite;
+    margin: 0px initial;
+    float: left;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.text_ys {
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+.center_right_text_1 {
+    height: 84%;
+    width: 100%;
+    /*border: 1px solid green;*/
+}
+
+    .center_right_text_1 p {
+        height: 10%;
+        width: 100%;
+        font-size: 20px;
+        line-height: 120px;
+        border-bottom: 5px solid red;
+    }
+
+    .center_right_text_1 table {
+        height: 100%;
+        width: 100%;
+    }
+
+    .center_right_text_1 tr, td {
+        /*border: 1px solid black;*/
+    }
